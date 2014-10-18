@@ -22,13 +22,30 @@ app.get('/', function(req, res){
 
 
 //Obtener los parámetros desde el formulario con el método POST mostrando el array en distintas líneas
-app.post('/user/', function(req, res) {
+app.post('/user', function(req, res) {
 
     res.send('¡Felicidades <b>'+req.body.name [0]+ '</b>! <br /> Has sido registrada. <br /> Verifica si el apellido <b>'+req.body.name [1]+'</b> es correcto. <br /> Con el email <b>'+req.body.name [2]+'</b>');
 
 });
 
+//Creamos un array que mostrará mediante el método GET
+app.get('/listaRecetas', function(req, res) {
 
+	var recetas = {
+		nombre : "Tortilla de patata",
+		ingredientes: [
+					"Huevos",
+					"Patatas",
+					"Sal"
+				],
+		foto: [
+					"tortilla_patata.jpg"
+				]
+	};
+
+	res.json(recetas);
+
+});
 
 
 //Configuración del servidor

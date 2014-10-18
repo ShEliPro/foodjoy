@@ -8,12 +8,15 @@
         <!-- El estilo desde un archivo externo-->
         <link rel="stylesheet" href="css/main.css" />
         
+        <!-- Se importa la aplicación como un archivo externo de JavaScript -->
+        <script type="text/javascript" src="../app.js"></script>
+        
         <!-- Se importa el archivo externo de JavaScript -->
         <script type="text/javascript" src="js/index.js"></script>
         
         <!-- Se importa la libreria de jQuery -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        
+
     </head>
     <body>
 	
@@ -29,10 +32,9 @@
                     
                     <input type="submit" value="Registrar">
     
-                    </form>
-            </div>
+                  </form>
 
-             <div id="contenidoDiv"> </div>
+            </div>
 
             <!-- Logo -->
             <div class="columnas">
@@ -43,7 +45,7 @@
               
             <div class="columnas">
 
-                  <form id="login" action="demo_form.asp" autocomplete="on">
+                  <form id="login" autocomplete="on">
                     
                     
                     E-mail: <input class="textfield" type="email" name="email" autocomplete="off"><br>
@@ -51,12 +53,19 @@
                     
                     <input type="submit" value="Iniciar Sesión">
     
-                    </form>
+                  </form>
             </div>
-            
-           
 
 		</div> <!-- cierre div contenido -->
+        
+       <form id="recetas" method="get" action="/listaRecetas" >
+                    
+                    
+         	<input type="submit" id="boton" value="Recetas">
+    
+        </form>
 
+		<div id="contentDiv"> </div>
+        
     </body>
 </html>
