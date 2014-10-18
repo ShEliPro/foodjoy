@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf8" />
+        <title> FoodJoy - Red Social Gastronómica - </title>
+        
+        <!-- El estilo desde un archivo externo-->
+        <link rel="stylesheet" href="css/main.css" />
+        
+        <!-- Se importa el archivo externo de JavaScript -->
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <!-- Se importa la libreria de jQuery -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        
+    </head>
+    <body>
+	
+		<div id="contenido">
+
+            <div class="columnas">
+                 <form id="registro" method="post" action="/user" autocomplete="on">
+    
+                    
+                    Nombre:<input class="textfield" type="text" name="name"><br>
+                    Apellido: <input class="textfield" type="text" name="name"><br>
+                    E-mail: <input class="textfield" type="email" name="name" autocomplete="off"> <br> <br>
+                    
+                    <input type="submit" value="Registrar">
+    
+                    </form>
+            </div>
+
+             <div id="contenidoDiv"> </div>
+
+            <!-- Logo -->
+            <div class="columnas">
+            
+                <img src="img/logo.jpg" alt="Logo" />
+                
+            </div>
+              
+            <div class="columnas">
+
+                  <form id="login" action="demo_form.asp" autocomplete="on">
+                    
+                    
+                    E-mail: <input class="textfield" type="email" name="email" autocomplete="off"><br>
+                    Password: <input class="textfield" type="text" name="lname"> <br> <br>
+                    
+                    <input type="submit" value="Iniciar Sesión">
+    
+                    </form>
+            </div>
+            
+           
+
+		</div> <!-- cierre div contenido -->
+
+    </body>
+</html>

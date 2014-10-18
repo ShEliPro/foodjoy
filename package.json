@@ -1,0 +1,9 @@
+{
+  "name": "foodjoy",
+  "description": "Red Social Gastronomica",
+  "version": "0.0.1",
+  "dependencies": {
+	"body-parser": "^1.8.3",
+    "express": "4.x"
+  }
+}
