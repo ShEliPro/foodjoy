@@ -1,0 +1,30 @@
+body {
+
+background: url('/img/SaladNinja.jpg') no-repeat center center fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+
+
+} 
+
+h1{
+
+	text-shadow: black 0.1em 0.1em 0.2em
+
+}
+
+div{
+	text-align: center;
+}
+
+div > h1{
+
+	font-size: 65px;
+	color: white;
+}
+
+label{
+	color: white;
+}
