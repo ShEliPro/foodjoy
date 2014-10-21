@@ -19,7 +19,18 @@ var configDB = require('./config/database.js');
 
 //Configuración ======================================
 
-mongoose.connect(configDB.url); //conexión con la BD
+//conexión con la BD
+mongoose.connect(configDB.url,function(err) {
+
+	if(!err) {
+		
+		console.log('Conexión a la BD realizada'); 
+	}
+	else{
+
+		console.log('ERRO: Conexión a la BD '+err);
+	}
+});
 
 require('./config/passport')(passport); //le pasamos passport a passport.js para poder usarlo
 
