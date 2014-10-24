@@ -1,3 +1,5 @@
+//Importamos el modelo recetas
+var Recetas = require('../app/models/recetas');
 
 //module.exports es el objeto que se devuelve tras una llamada request
 //así podemos usar express y passport aquí
@@ -70,6 +72,39 @@ module.exports = function(app, passport) {
 		req.logout(); //usamos req.logout() que nos proporciona passport para salir de la sesión de usuario. 
 		res.redirect('/'); //Después, redireccionamos a la página principal.
 
+	});
+
+
+	// =====================================
+	// Recetas ==============================
+	// =====================================
+	//Obtener la colección de recetas
+	app.get('/recetas', function(req, res) {
+		
+		Recetas.find({},function(err,recetas){
+			
+			//Si existe un error
+			if(err){
+				
+				//Muestra por consola
+				console.log(err);
+			}
+			else{
+
+				//Muestra el objeto receta
+				res.render('recetas', {
+					
+					recetas: recetas
+					
+				})
+			
+			//Cierre de else		
+			}
+		
+		//Cierre del find
+		});
+		
+	//Cierre de la función
 	});
 };
 

@@ -19,7 +19,7 @@ var configDB = require('./config/database.js');
 
 //Configuración ======================================
 
-//conexión con la BD
+//Conexión con la BD
 mongoose.connect(configDB.url,function(err) {
 
 	if(!err) {

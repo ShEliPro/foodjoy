@@ -10,31 +10,40 @@
 	</style>
 </head>
 <body>
-<div class="container">
+	<div class="container">
 
-	<div class="page-header text-center">
-		<h1><span class="fa fa-cutlery"></span><br>Perfil de <%= user.local.email %></h1>
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-	</div>
-
-	<div class="row">
-
-		<!-- LOCAL INFORMATION -->
-		<div class="col-sm-6">
-			<div class="well">
-				<h3><span class="fa fa-user"></span> Local</h3>
-
-					<p>
-						<strong>id</strong>: <%= user._id %><br>
-						<strong>email</strong>: <%= user.local.email %><br>
-						<strong>password</strong>: <%= user.local.password %>
-					</p>
-
-			</div>
+		<div class="page-header text-center">
+			<h1><span class="fa fa-cutlery"></span><br>Perfil de <%= user.local.email %></h1>
+			<a href="/logout" class="btn btn-default btn-sm">Logout</a>
 		</div>
 
-	</div>
+		<div class="row">
 
-</div>
+			<!-- INFORMACIÓN DEL USUARIO -->
+			<div class="col-sm-6">
+				<div class="well">
+					<h3><span class="fa fa-user"></span> Local</h3>
+
+						<p>
+							<strong>id</strong>: <%= user._id %><br>
+							<strong>email</strong>: <%= user.local.email %><br>
+							<strong>password</strong>: <%= user.local.password %>
+						</p>
+
+				</div>
+			</div>
+
+		</div><br />
+
+    	<form action="/recetas" method="get">
+
+			<div class="form-group">
+				<label>Recetas</label>
+			</div>
+
+			<button type="submit" > Lista de recetas</button>
+
+		</form>
+	</div>
 </body>
 </html>
