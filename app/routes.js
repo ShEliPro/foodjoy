@@ -78,6 +78,43 @@ module.exports = function(app, passport) {
 	// =====================================
 	// Recetas ==============================
 	// =====================================
+
+	//Añadir un documento a la colección de recetas
+	app.post('/agregarRecetas', function(req, res) {
+
+		//Creamos una variable para obtener datos del formulario
+		var recetas = req.body.content;
+
+		//Creamos una variable para crear un objeto de tipo Recetas
+		recetas = new Recetas ({
+
+			nombre: req.body.nombre,
+			ingredientes: req.body.ingredientes
+
+		});
+
+		//Para guardar dicha instancia en la base de datos
+		recetas.save(function (err, obj) {
+
+			//Si no hay error
+  			if (!err){
+
+  				console.log(obj.nombre + ' ha sido guardado');
+
+  			}else{
+		      
+		      	//Muestra por consola el errro
+		    	console.log('ERROR: ' + err);
+
+		  	}
+
+		//Cierre del método save
+		});
+		
+		
+	//Cierre de la función
+	});
+
 	//Obtener la colección de recetas
 	app.get('/recetas', function(req, res) {
 		
@@ -106,7 +143,9 @@ module.exports = function(app, passport) {
 		
 	//Cierre de la función
 	});
-};
+
+//Cierre del module exports
+}; 
 
 
 function isLoggedIn(req, res, next) {
