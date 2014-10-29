@@ -3,53 +3,59 @@
 	<head>
 		<title>Recetas</title>
 
-		<!--  Importa el css de bootstrap -->
+		<!--  Importa el css de bootstrap 
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">-->
 
 		<!-- Importamos el estilo css -->
 		<link rel="stylesheet" href="css/profile.css" /> 
 
-		<style>
-
-			body { 
-				padding-top:80px;
-				word-wrap:break-word;
-			}
-			
-		</style>
 	</head>
 
 	<body>
-		<div class="container">
+		<div id="container">
 
-			<div class="page-header text-center">
-				<h1><span></span><br>Lista de recetas</h1>
-			</div>
+			<nav id="menu_nav">
 
-			<div class="col-sm-6">
-					<div class="well">
-						<h3><span></span> Recetas </h3>
+				<a href="/logout">Logout</a>
 
-							<!-- Mostrar una lista de recetas, sólo el campo nombre -->
-							<ul>
-								<% for(var i = 0; i<recetas.length; i++){ %>
-								    <li><%= recetas[i].nombre %></li>
-								<% } %>
-							</ul>
+			</nav> <!-- Cierre del menu nav-->
 
-					</div>
-				</div>
-			</div>
-			
-			<form action="/profile" method="get">
+			<div id="titulo">
 
-				<div class="form-group">	
-				</div>
-			 
-				<button type="submit" id="boton"> Perfil </button>
+				<h1>Lista de recetas</h1>
 
-			</form>
-		</div>
+			</div>  <!-- Cierre del titulo -->
+
+
+			<!-- Lista de recetas  -->
+			<div id="info">
+
+				<!-- INFORMACIÓN DE RECETAS -->
+				<h3> Recetas</h3>
+
+				<!-- Mostrar una lista de recetas, sólo el campo nombre -->
+				<ul>
+					<% for(var i = 0; i<recetas.length; i++){ %>
+					    <li><%= recetas[i].nombre %></li>
+					<% } %>
+				</ul>
+
+			</div> <!-- Cierre de recetas -->
+
+
+
+			<!-- Botón para ir al perfil-->
+			<div id="boton">
+
+				<form action="/profile" method="get">
+
+					<button type="submit"> Perfil </button>
+
+				</form>
+
+			</div> <!-- Cierre del botón perfil -->
+
+		</div> <!-- Cierre del container -->
 </body>
 </html>

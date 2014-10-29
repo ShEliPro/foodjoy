@@ -1,96 +1,98 @@
-<!-- views/profile.ejs -->
 <!doctype html>
 <html>
-<head>
-	<title>Node Authentication</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	<style>
-		body 		{ padding-top:80px; word-wrap:break-word; }
-	</style>
-</head>
-<body>
-	<div class="container">
+	<head>
+		<title>Perfil de usuario </title>
 
-		<div class="page-header text-center">
-			<h1><span class="fa fa-cutlery"></span><br>Perfil de <%= user.local.email %></h1>
-			<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-		</div>
+		<!-- Importamos el estilo css -->
+		<link rel="stylesheet" href="css/profile.css" /> 
 
-		<div class="row">
+	</head>
 
-			<!-- INFORMACIÓN DEL USUARIO -->
-			<div class="col-sm-6">
-				<div class="well">
-					<h3><span class="fa fa-user"></span> Datos del usuario </h3>
+	<body>
+		<div id="container">
 
-						<p>
-							<strong>Usuario</strong>: <%= user.local.email %><br>
-							<strong>Contraseña</strong>: <%= user.local.password %>
-						</p>
+			<nav id="menu_nav">
 
-				</div>
-			</div>
+				<a href="/logout">Logout</a>
 
-		</div><br />
+			</nav> <!-- Cierre del menu nav-->
 
-		<!-- Botón para añadir las recetas-->
-		<div id="boton">
+			<div id="user">
 
-			<form action="/agregarRecetas" method="post">
-
-				<h3> Añade recetas </h3>
-
-				<div id="nombre">
-						<label> Nombre </label> <br />
-						<input type="text" name="nombre">
-				</div> <!-- Cierre del nombre-->
+				<h1><%= user.local.email %></h1>
+				
+			</div> <!-- Cierre del user -->
 
 
-				<br />
+			
+			<div id="info">
 
-				<div id="ingredientes">
-						<label> Ingredientes </label> <br />
-						<input type="text" name="ingredientes">
-				</div> <!-- Cierre del ingredientes-->
+				<!-- INFORMACIÓN DEL USUARIO -->
+				<h3>Datos del usuario </h3>
 
-				<br />
-				<button type="submit"> Añadir </button><br /><br />
+				<p>
+					<strong>Usuario</strong>: <%= user.local.email %>
+				</p>
 
-			</form>
+			</div> <!-- Cierre del dataUser -->
 
-		</div> <!-- Cierre de agregarRecetas -->
+			<!-- Botón para añadir las recetas-->
+			<div id="boton">
 
-    	<form action="/recetas" method="get">
+				<form action="/agregarRecetas" method="post">
 
-    		<h3> Lista de recetas </h3>
+					<h3> Añade recetas </h3>
 
-			<button type="submit" > Recetas</button>
+					<div id="nombre">
+							<label> Nombre </label> <br />
+							<input type="text" name="nombre">
+					</div> <!-- Cierre del nombre-->
 
-		</form> <br />
+					<div id="ingredientes">
+							<label> Ingredientes </label> <br />
+							<input type="text" name="ingredientes">
+					</div> <!-- Cierre del ingredientes-->
+
+					<button type="submit"> Añadir </button>
+
+				</form>
+
+			</div> <!-- Cierre del listaRecetas -->
 
 
-		<!-- Botón para borrar las recetas-->
-		<div id="boton">
 
-			<form action="/borrarRecetas" method="post">
+			<!-- Botón para listar las recetas-->
+			<div id="boton">
 
-				<h3> Borra recetas </h3>
+				<form action="/listaRecetas" method="get">
+
+					<button type="submit"> Lista de recetas</button>
+
+				</form>
+
+			</div> <!-- Cierre del listaRecetas -->
+			
+						<!-- Botón para borrar las recetas-->
+			<div id="boton">
+
+				<form action="/borrarRecetas" method="post">
+
+					<h3> Borra recetas </h3>
 
 
-				<div id="nombre">
-						<label> Introduce el nombre de la receta </label> <br />
-						<input type="text" name="nombre">
-				</div> <!-- Cierre del nombre-->
+					<div id="nombre">
+							<label> Introduce el nombre de la receta </label> <br />
+							<input type="text" name="nombre">
+					</div> <!-- Cierre del nombre-->
 
-				<br />
 
-				<button type="submit"> Borrar </button><br /><br />
+					<button type="submit"> Borrar </button><br /><br />
 
-			</form>
+				</form>
 
-		</div> <!-- Cierre de borrarRecetas -->
+			</div> <!-- Cierre de borrarRecetas -->
 
-	</div>
-</body>
+
+		</div> <!-- Cierre del container -->
+	</body>
 </html>

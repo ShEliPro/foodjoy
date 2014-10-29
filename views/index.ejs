@@ -1,35 +1,114 @@
-<!-- views/index.ejs -->
 <!doctype html>
-
 <html>
-<head>
-	<title>FOOD JOY</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- cargar bootstrap css -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- cargar fontawesome -->
-	<link rel="stylesheet" href="css/style.css"> 
-	<style>
-		body 		{ padding-top:80px; }
-	</style>
-</head>
-<body>
+	<head>
+
+		<meta charset="utf8" />
+		<title>Aplicación de prueba</title>
+
+		<!-- Importar funciones de JavaScript-->
+		<script type="text/javascript" src="js/formulario.js"></script>
+
+		<!-- Importamos jQuery -->
+		<script type="text/javascript" src="js/jquery.js"></script>
+
+		<!-- Importamos el estilo css -->
+		<link rel="stylesheet" href="css/style.css" /> 
+
+		<!-- Función de jQuery -->
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+
+				//Obtenemos el id del input
+				var x=$("#userSign");
+
+				x.click(desaparecerLogin);
+
+				x=$("#userLogin");
+
+				x.click(desaparecerSign);
+
+			});
+
+			function desaparecerLogin(){
 
 
+				$("#login").css('visibility', 'hidden');
 
-<div class="container">
+			}
 
-	
-	<div> <!--class="jumbotron text-center"-->
-		<h1><span class="fa fa-cutlery"></span><br> FOOD JOY</h1>
-		<!--La clase fa fa-umbrella usa iconos de http://fortawesome.github.io/Font-Awesome, cambiando el nombre podremos ponerle el icono que queramos dentro de los que nos ofrecen
-			fa-cutlery - tenedor y cuchillo
+			function desaparecerSign(){
 
-		-->
+				$("#registro").css('visibility', 'hidden');
 
-		<a href="/login" class="btn btn-default"><span class="fa fa-user"></span>Login</a>
-		<a href="/signup" class="btn btn-default"><span class="fa fa-user"></span>Registro</a>
-	</div>
+			}
 
-</div>
-</body>
+		</script>
+
+	</head>
+
+	<body>
+
+		<div id="container">
+
+			<section id="bloque">
+
+				<!-- FORMULARIO DE REGISTRO -->
+				<div id="registro">
+
+					<form action="/signup" method="post">
+
+						<h1> Registro </h1>
+
+						<div class="usuario">
+							<label> Usuario </label> <br />
+							<input type="text" id="userSign" name="email" onFocus="entrarFoco(this)" onBlur="salirFoco(this); revisarObligatorio(this)">
+						</div> <!-- Cierre del usuario-->
+
+						<div class="password">
+							<label> Contraseña </label> <br />
+							<input type="password" name="password" onFocus="entrarFoco(this)" onBlur="salirFoco(this); revisarObligatorio(this)">
+						</div> <!-- Cierre del password-->
+
+						<button type="submit"> Registrarse </button>
+
+					</form>
+
+				</div> <!-- Cierre del registro-->
+
+				<div id="titulo">
+
+					<h1> FOOD JOY </h1>
+
+				</div> <!-- Cierre del titulo-->
+				
+
+				<!-- FORMULARIO DE LOGIN -->
+				<div id="login">
+					
+					<form action="/login" method="post">
+
+						<h1> Login </h1>
+
+						<div class="usuario">
+							<label> Usuario </label> <br />
+							<input type="text" id="userLogin" id="email" name="email" onFocus="entrarFoco(this)" onBlur="salirFoco(this); revisarObligatorio(this)">
+						</div> <!-- Cierre del usuario-->
+
+						<div class="password">
+							<label> Contraseña </label> <br />
+							<input type="password" id="password" name="password" onFocus="entrarFoco(this)" onBlur="salirFoco(this); revisarObligatorio(this)">
+						</div> <!-- Cierre del password-->
+
+						<button type="submit">Login</button>
+
+					</form>
+
+				</div> <!-- Cierre del login-->
+
+			</section> <!-- Cierre del bloque-->
+
+		</div> <!-- Cierre del div container -->
+
+	</body>
 </html>
-

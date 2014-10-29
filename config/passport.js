@@ -1,15 +1,19 @@
+//Este fichero está en : config/passport.js
+//Hemos creado nuestro objeto passport en server.js. Y luego el fichero passport.js cogerá el objeto passport.
+//Aquí es dónde las funciones sirven para guardar nuestro usuario en sesión.
 
-// cargamos lo necesario
+// cargamos lo necesario para el objeto passport
 var LocalStrategy = require('passport-local').Strategy;
 
-// cargamos el modelo user
+//Cargamos el modelo user
 var User = require('../app/models/user');
 
-
+//module.exports es el objeto que se devuelve tras una llamada request
+//así podemos usar passport
 module.exports = function(passport) {
 
     // =========================================================================
-    // configuración de sesión passport ========================================
+    // Configuración de sesión passport ========================================
     // =========================================================================
     
     // para sesiones persistentes
@@ -38,6 +42,7 @@ module.exports = function(passport) {
         passwordField : 'password',
         passReqToCallback : true // permite mandar la request completa al callback
     },
+
     function(req, email, password, done) {
 
         //buscamos en nuestra DB coincidencias con el email ingresado 
@@ -49,7 +54,7 @@ module.exports = function(passport) {
 
             // comprueba si el email ya existe, si es así muestra un mensaje flash
             if (user) {
-                return done(null, false, req.flash('signupMessage', 'Este email ya está registrado.'));
+                return done(null, false, req.flash('signupMessage', 'Este usuario ya está registrado.'));
             } else {
 
                 // si no existe el email en la BD crea el usuario con las credenciales introducidas

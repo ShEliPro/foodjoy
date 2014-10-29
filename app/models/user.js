@@ -1,48 +1,32 @@
-// app/models/user.js
+//Este fichero está en la: app/models/user.js
 
-// load the things we need
-var mongoose = require('mongoose');
-var bcrypt   = require('bcrypt-nodejs');
+// Cargamos las dependencias que necesitamos - mongoose y bcrypt-nodejs
+var mongoose = require('mongoose'); //mongoose. Es una dependencia de la base de datos MongoDB. Sirve para modular los objetos de MongoDB. (ORM).
+var bcrypt   = require('bcrypt-nodejs'); //Sirve para cifrar la contraseña
 
-// define the schema for our user model
-var userSchema = mongoose.Schema({
+//Se define el schema que vamos a utilizar para los users
+var userSchema= mongoose.Schema({
 
+	//El email y la contraseña se guardarán en el modelo antes de introducir a la base de datos
     local            : {
         email        : String,
         password     : String,
-    },
-    facebook         : {
-        id           : String,
-        token        : String,
-        email        : String,
-        name         : String
-    },
-    twitter          : {
-        id           : String,
-        token        : String,
-        displayName  : String,
-        username     : String
-    },
-    google           : {
-        id           : String,
-        token        : String,
-        email        : String,
-        name         : String
     }
 
 });
 
-// methods ======================
-// generating a hash
+//Genera el cifrado para las contraseñas
 userSchema.methods.generateHash = function(password) {
+
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-// checking if password is valid
+//Para saber si la contraseña es válida
 userSchema.methods.validPassword = function(password) {
+
     return bcrypt.compareSync(password, this.local.password);
 };
 
-// create the model for users and expose it to our app
-module.exports = mongoose.model('User', userSchema);
 
+//Se exporta el modelo creado para los usuarios
+module.exports = mongoose.model('User', userSchema);
