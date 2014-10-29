@@ -16,7 +16,7 @@ module.exports = function(app, passport) {
 
 
 	// =====================================
-	// RESGISTRO ===========================
+	// REGISTRO ===========================
 	// =====================================
 	
 	//Obtiene los datos del formulario del registro mediente el método POST.
@@ -24,7 +24,6 @@ module.exports = function(app, passport) {
 
 		successRedirect : '/profile', //si los datos son correctos entraremos al perfil
 		failureRedirect : '/', //si hay un error o los datos no son correctos redirecciona al index
-		failureFlash : true // con failureFlash:true permitimoslanzar los mensajes de tipo flash
 
 	}));
 
@@ -39,7 +38,6 @@ module.exports = function(app, passport) {
 
 		successRedirect : '/profile', // si los datos son correctos entraremos al perfil
 		failureRedirect : '/', // si hay un error o los datos no son correctos redirecciona al index
-		failureFlash : true //lanzará el mensaje flash con una información para avisar al usuario que ha introducido mal los datos.
 
 	}));
 

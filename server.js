@@ -5,7 +5,6 @@
 var express  = require('express'); //para la gestión de rutas
 var mongoose = require('mongoose'); //para modUlar los objetos de MongoDB
 var passport = require('passport'); //passprt es un middleware de autentificación.
-var flash    = require('connect-flash'); //para lanzar mensajes flash de información al usuario
 var morgan = require ('morgan'); //para los mensajes de consola
 var cookieParser = require('cookie-parser'); //para el uso de cookies, de manera que una vez logueados no tengamos que estar continuamente logueandonos en cada pagina 
 var session = require('express-session'); //necesaria junto con cookie-parser. Podremos acceder a datos sobre la session (req.session.lastPage, etc)
@@ -28,7 +27,7 @@ mongoose.connect(configDB.url,function(err) {
 	}
 	else{
 
-		console.log('ERRO: Conexión a la BD '+err);
+		console.log('ERROR: Conexión a la BD '+err);
 	}
 });
 
@@ -48,8 +47,6 @@ app.set('view engine', 'ejs'); //usamos ejs (Embedded JavaScript). Es un motor d
 app.use(session({ secret: 'pruebapp' })); // clave secret para usarla con hash (password encriptados)
 app.use(passport.initialize()); //inicializamos passport
 app.use(passport.session()); // persistent login sessions -> cookies peristentes: que no desaperecen cuando cierras el navegador
-app.use(flash());  // para mostrar mensajes flash cuando una persona se loguea
-
 
 
 // RUTAS ======================================================================
