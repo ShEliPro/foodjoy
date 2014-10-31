@@ -172,6 +172,37 @@ module.exports = function(app, passport) {
 	//Cierre de la función
 	});
 
+	//Modificar un documento a la colección de recetas
+	app.post('/borrarRecetas', function(req, res) {
+
+
+		//Creamos una variable para obtener el nombre del formulario de la receta a eliminar 
+		var nombre = req.body.nombre;
+
+
+		//Para borrar una receta mediante el nombre
+		Recetas.findOne({nombre: nombre},function (err,obj) {
+
+			//Si no hay error
+  			if (!err){
+
+  				console.log(obj.nombre);
+  				
+
+  			}else{
+		      
+		      	//Muestra por consola el errro
+		    	console.log('ERROR: ' + err);
+
+		  }
+
+
+		//Cierre del remove	
+		});
+		
+	//Cierre de la función
+	});
+
 };
 
 //Función para saber si aun sigue logueado
