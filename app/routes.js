@@ -76,7 +76,7 @@ module.exports = function(app, passport) {
 	
 
 	// =====================================
-	// Recetas ==============================
+	// RECETAS =============================
 	// =====================================
 
 	//Añadir un documento a la colección de recetas
@@ -112,6 +112,7 @@ module.exports = function(app, passport) {
 	//Cierre de la función
 	});
 
+
 	//Obtener la colección de recetas
 	app.get('/listaRecetas', function(req, res) {
 		
@@ -125,7 +126,7 @@ module.exports = function(app, passport) {
 			}
 			else{
 
-				//Muestra el objeto receta
+				//Muestra el objeto recetas
 				res.render('recetas', {
 					
 					recetas: recetas
@@ -140,6 +141,7 @@ module.exports = function(app, passport) {
 		
 	//Cierre de la función
 	});
+
 	
 	//Borrar un documento a la colección de recetas
 	app.post('/borrarRecetas', function(req, res) {
@@ -173,6 +175,7 @@ module.exports = function(app, passport) {
 	//Cierre de la función
 	});
 
+
 	//Modificar un documento a la colección de recetas
 	app.post('/modificarRecetas', function(req, res) {
 
@@ -182,15 +185,20 @@ module.exports = function(app, passport) {
 
 
 		//Para borrar una receta mediante el nombre
-		Recetas.findOne({nombre: nombre},function (err) {
+		Recetas.findOne({nombre: nombre},function (err,receta) {
 
 			//Si no hay error
   			if (!err){
 
+  				//Mostramos un mensaje por consola
   				console.log(nombre + ' va a ser modificado.');
 
-  				//Renderizamos a la pagina modificarRecetas.ejs
-				res.render('modificarRecetas');
+				//Muestra el objeto receta en la página modificarRecetas.ejs
+				res.render('modificarRecetas', {
+					
+					receta: receta
+					
+				})
 
   			}
   			else{
@@ -206,6 +214,11 @@ module.exports = function(app, passport) {
 	//Cierre de la función
 	});
 
+
+
+	// =====================================
+	// ADMIN ===============================
+	// =====================================
 };
 
 //Función para saber si aun sigue logueado
