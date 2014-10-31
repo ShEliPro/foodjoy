@@ -17,3 +17,7 @@ Tecnologías a usar:
 - HTML5 / CSS3 + JavaScript
 - Node.js
 - MongoDB
+
+Para acceder a la base de datos desde el terminal hay que escribir el siguiente código:
+
+	USER=xxxxx PASSWORD=xxxxx nodemon server.js
