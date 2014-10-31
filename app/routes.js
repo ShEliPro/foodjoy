@@ -1,4 +1,4 @@
-//Importamos el modelo recetas
+//Cargamos el modelo recetas
 var Recetas = require('../app/models/recetas');
 
 //module.exports es el objeto que se devuelve tras una llamada request
@@ -8,7 +8,7 @@ module.exports = function(app, passport) {
 // RUTAS ===============================================================
 
 	// =====================================
-	// PAGINA PRINCIPAL (con links de login y registro ========
+	// PAGINA PRINCIPAL ====================
 	// =====================================
 	app.get('/', function(req, res) {
 		res.render('index.ejs');
