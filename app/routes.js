@@ -182,30 +182,25 @@ module.exports = function(app, passport) {
 
 
 		//Para borrar una receta mediante el nombre
-		Recetas.findOne({nombre: nombre},function (err,obj) {
+		Recetas.findOne({nombre: nombre},function (err) {
 
 			//Si no hay error
   			if (!err){
 
-  				console.log(obj.nombre + ' va a ser modificado.');
+  				console.log(nombre + ' va a ser modificado.');
 
-  				//Muestra el objeto receta
-				/*res.render('modificarRecetas', {
-					
-					nombre: nombre
-					
-				})*/
-  				
+  				//Renderizamos a la pagina modificarRecetas.ejs
+				res.render('modificarRecetas');
 
-  			}else{
+  			}
+  			else{
 		      
 		      	//Muestra por consola el errro
 		    	console.log('ERROR: ' + err);
+			}
 
-		  }
 
-
-		//Cierre del remove	
+		//Cierre del findOne	
 		});
 		
 	//Cierre de la función
