@@ -155,8 +155,9 @@ module.exports = function(app, passport) {
 			//Si no hay error
   			if (!err){
 
-  				console.log(nombre);
-  				
+  				console.log(nombre + ' ha sido eliminado');
+
+  								
 
   			}else{
 		      
@@ -173,7 +174,7 @@ module.exports = function(app, passport) {
 	});
 
 	//Modificar un documento a la colección de recetas
-	app.post('/borrarRecetas', function(req, res) {
+	app.post('/modificarRecetas', function(req, res) {
 
 
 		//Creamos una variable para obtener el nombre del formulario de la receta a eliminar 
@@ -186,7 +187,14 @@ module.exports = function(app, passport) {
 			//Si no hay error
   			if (!err){
 
-  				console.log(obj.nombre);
+  				console.log(obj.nombre + ' va a ser modificado.');
+
+  				//Muestra el objeto receta
+				/*res.render('modificarRecetas', {
+					
+					nombre: nombre
+					
+				})*/
   				
 
   			}else{
