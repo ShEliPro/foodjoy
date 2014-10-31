@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title> Recetas </title>
+		<title> Modificar receta </title>
 
 		<!--  Importa el css de bootstrap 
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
@@ -9,6 +9,21 @@
 
 		<!-- Importamos el estilo css -->
 		<link rel="stylesheet" href="css/profile.css" /> 
+
+		<style type="text/css">
+
+			#info{
+
+				border: 0px;
+				background-color: white;
+			}
+
+			input {
+
+				width: 300px;
+			}
+
+		</style>
 
 	</head>
 
@@ -27,7 +42,30 @@
 
 			</div>  <!-- Cierre del titulo -->
 
-			<%= receta.nombre %>
+			<div id="info">
+
+				<!-- INFORMACIÓN DE LA RECETA A MODIFICAR-->
+				<h3> Receta </h3>
+
+					<form action="/recetaModificada" method="post">
+
+					<div id="nombre">
+								<label> Nombre </label> <br />
+								<input type="text" name="nombre" value="<%= receta.nombre %>">
+					</div> <!-- Cierre del nombre -->
+
+					<div id="ingredientes">
+								<label> Ingredientes </label> <br />
+								<input type="text" name="ingredientes" value="<%= receta.ingredientes %>">
+
+					</div> <!-- Cierre del ingredientes -->
+
+					<button type="submit"> 	Modificar </button><br /><br />
+
+				</form>
+
+			</div> <!-- Cierre del formulario de receta -->
+
 
 			<!-- Botón para ir al perfil-->
 			<div id="boton">

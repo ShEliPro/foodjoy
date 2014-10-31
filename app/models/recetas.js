@@ -6,7 +6,7 @@ var mongoose = require('mongoose'); //mongoose. Es una dependencia de la base de
 var recetasSchema= mongoose.Schema({
 	
 	nombre        : String,
-	ingredientes     : String,
+	ingredientes     : String
 
 });
 

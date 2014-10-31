@@ -2,7 +2,7 @@
 var Recetas = require('../app/models/recetas');
 
 //module.exports es el objeto que se devuelve tras una llamada request
-//así podemos usar express y passport obteniendo como parámetro
+//así podemos usar express y passport pasando como parámetro
 module.exports = function(app, passport) {
 
 // RUTAS ===============================================================
@@ -19,11 +19,11 @@ module.exports = function(app, passport) {
 	// REGISTRO ===========================
 	// =====================================
 	
-	//Obtiene los datos del formulario del registro mediente el método POST.
+	//Obtiene los datos del formulario del registro autentificando el usuario
 	app.post('/signup', passport.authenticate('local-signup', {
 
 		successRedirect : '/profile', //si los datos son correctos entraremos al perfil
-		failureRedirect : '/', //si hay un error o los datos no son correctos redirecciona al index
+		failureRedirect : '/', //si hay un error o los datos no son correctos redirecciona a la página principal
 
 	}));
 
@@ -33,11 +33,11 @@ module.exports = function(app, passport) {
 	// LOGIN ===============================
 	// =====================================
 
-	//Obtiene los datos del formulario del login mediente el método POST.
+	//Obtiene los datos del formulario del registro autentificando el usuario
 	app.post('/login', passport.authenticate('local-login', {
 
 		successRedirect : '/profile', // si los datos son correctos entraremos al perfil
-		failureRedirect : '/', // si hay un error o los datos no son correctos redirecciona al index
+		failureRedirect : '/', //si hay un error o los datos no son correctos redirecciona a la página principal
 
 	}));
 
@@ -46,7 +46,7 @@ module.exports = function(app, passport) {
 	// PERFIL ==============================
 	// =====================================
 
-	//usamos la función isLoggedIn para verificar que el usario está logueado.
+	//usamos la función isLoggedIn para verificar que el usario está logueado
 	//ya que no queremos que nadie pueda acceder al perfil sin haberse autentificado antes
 	app.get('/profile', isLoggedIn, function(req, res) {
 
@@ -93,27 +93,28 @@ module.exports = function(app, passport) {
 		//Para guardar dicha instancia en la base de datos
 		recetas.save(function (err, obj) {
 
-			//Si no hay error
-  			if (!err){
-
-  				console.log(obj.nombre + ' ha sido guardado');
-
-  			}else{
-		      
-		      	//Muestra por consola el errro
+		  	//Si existe un error
+			if(err){
+				
+				//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
+			}
+			else{
 
-		  	}
+				//Muestra por consola el objeto recetas
+				console.log(obj.nombre + ' ha sido guardado');
+			
+			//Cierre de else		
+			}
 
 		//Cierre del método save
-		});
-		
+		});		
 		
 	//Cierre de la función
 	});
 
 
-	//Obtener la colección de recetas
+	//Obtener toda la colección de recetas
 	app.get('/listaRecetas', function(req, res) {
 		
 		Recetas.find({},function(err,recetas){
@@ -126,7 +127,7 @@ module.exports = function(app, passport) {
 			}
 			else{
 
-				//Muestra el objeto recetas
+				//Muestra el objeto recetas en la plantilla recetas.ejs
 				res.render('recetas', {
 					
 					recetas: recetas
@@ -150,20 +151,19 @@ module.exports = function(app, passport) {
 		//Creamos una variable para obtener el nombre del formulario de la receta a eliminar 
 		var nombre = req.body.nombre;
 
-
 		//Para borrar una receta mediante el nombre
 		Recetas.remove({nombre: nombre},function (err) {
 
 			//Si no hay error
   			if (!err){
 
+  				//Muestra por consola el mensaje
   				console.log(nombre + ' ha sido eliminado');
-
   								
 
   			}else{
 		      
-		      	//Muestra por consola el errro
+		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
 
 		  }
@@ -176,13 +176,12 @@ module.exports = function(app, passport) {
 	});
 
 
-	//Modificar un documento a la colección de recetas
+	//Obtener un documento de la colección de recetas
 	app.post('/modificarRecetas', function(req, res) {
 
 
-		//Creamos una variable para obtener el nombre del formulario de la receta a eliminar 
+		//Creamos una variable para obtener el nombre del formulario de la receta a obtener
 		var nombre = req.body.nombre;
-
 
 		//Para borrar una receta mediante el nombre
 		Recetas.findOne({nombre: nombre},function (err,receta) {
@@ -203,7 +202,7 @@ module.exports = function(app, passport) {
   			}
   			else{
 		      
-		      	//Muestra por consola el errro
+		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
 			}
 
@@ -215,10 +214,47 @@ module.exports = function(app, passport) {
 	});
 
 
+	//Modificar un documento de la colección de recetas
+	app.post('/recetaModificada', function(req, res) {
+
+		//Guardamos los datos obtenidos desde el formulario en las variables a modificar
+		var nombre= req.body.nombre;
+		var ingredientes= req.body.ingredientes;
+
+		Recetas.update({nombre: nombre}, { nombre: nombre, ingredientes: ingredientes}, null, function (err) {
+
+
+			//Si hay error
+			if (err){
+				
+		      	//Muestra por consola el error
+		    	console.log('ERROR: ' + err);
+		    }
+		    else{
+
+		    	//Muestra por consola
+		    	console.log(nombre+" ha sido modificado.");
+
+			//Cierre del else	
+		    }
+
+		//Cierre del método update
+		});
+		
+	//Cierre de la función
+	});
+
+
+
 
 	// =====================================
 	// ADMIN ===============================
 	// =====================================
+	app.get('/admin', function(req, res) {
+		res.render('admin.ejs');
+	});
+
+
 };
 
 //Función para saber si aun sigue logueado
