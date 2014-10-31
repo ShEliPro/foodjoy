@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Recetas </title>
+
+		<!--  Importa el css de bootstrap 
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">-->
+
+		<!-- Importamos el estilo css -->
+		<link rel="stylesheet" href="css/profile.css" /> 
+
+	</head>
+
+	<body>
+		<div id="container">
+
+			<nav id="menu_nav">
+
+				<a href="/logout">Logout</a>
+
+			</nav> <!-- Cierre del menu nav-->
+
+			<div id="titulo">
+
+				<h1>Modifica la receta</h1>
+
+			</div>  <!-- Cierre del titulo -->
+
+
+			<!-- Formulario para modificar la receta 
+			<div id="info">
+
+				<!-- INFORMACIÓN DE RECETAS 
+				<h3> Receta</h3>
+
+				<form action="/recetaModificada" method="post">
+
+					<div id="nombre">
+								<label> Nombre </label> <br />
+								<input type="text" name="nombre" value="<%= recetas.nombre %>">
+					</div> <!-- Cierre del nombre
+
+					<div id="ingredientes">
+								<label> Ingredientes </label> <br />
+								<input type="text" name="nombre" value="<%= recetas.ingredientes %>">
+
+					</div> <!-- Cierre del nombre
+
+					<button type="submit"> 	Modificar </button><br /><br />
+
+				</form>
+
+			</div>--> <!-- Cierre de recetas -->
+
+
+
+			<!-- Botón para ir al perfil-->
+			<div id="boton">
+
+				<form action="/profile" method="get">
+
+					<button type="submit"> Perfil </button>
+
+				</form>
+
+			</div> <!-- Cierre del botón perfil -->
+
+		</div> <!-- Cierre del container -->
+</body>
+</html>
