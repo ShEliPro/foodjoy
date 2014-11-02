@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Receta Agregada </title>
+		
+		<!-- Importamos el estilo css -->
+		<link rel="stylesheet" href="css/profile.css" /> 
+		
+	</head>
+
+	<body>
+		<div id="container">
+
+			<% include menu_nav.html %>
+
+			<div id="titulo">
+
+				<h1>Receta agregada</h1>
+
+			</div>  <!-- Cierre del titulo -->
+
+			<div id="info">
+
+				<!-- MENSAEJE DE LA RECETA -->
+				<p> <strong> <%= receta %> </strong>  <%= msg %> </p>
+
+			</div> <!-- Cierre del mensaje-->
+
+		</div> <!-- Cierre del container -->
+</body>
+</html>

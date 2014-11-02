@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Receta Modificada </title>
+		
+		<!-- Importamos el estilo css -->
+		<link rel="stylesheet" href="css/profile.css" /> 
+
+		<style type="text/css">
+
+			#info{
+
+				border: 0px;
+				background-color: white;
+				width: 40%;
+			}
+
+
+			label{
+
+				margin-left: 10px;
+			}
+
+			p{
+				margin-top: 10px;
+				margin-bottom: 20px;
+			}
+
+			.variable{
+
+				margin-left: 30px;
+				margin-bottom: 10px;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+		<div id="container">
+
+			<% include menu_nav.html %>
+
+			<div id="titulo">
+
+				<h1>Receta modificada</h1>
+
+			</div>  <!-- Cierre del titulo -->
+
+			<div id="info">
+
+				<!-- MENSAEJE DE LA RECETA Y SUS DATOS -->
+				<p> <strong> <%= receta %> </strong>  <%= msg %> </p>
+
+				<label><strong> Nombre: </strong> </label>
+				<p class="variable"> <%= nombre %> </p>
+
+				<label><strong> Ingredientes: </strong> </label>
+				<p class="variable"> <%= ingredientes %> </p>
+
+			</div> <!-- Cierre del formulario de receta -->
+
+		</div> <!-- Cierre del container -->
+</body>
+</html>

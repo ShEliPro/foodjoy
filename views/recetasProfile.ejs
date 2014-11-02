@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Recetas </title>
+		
+		<!-- Importamos el estilo css -->
+		<link rel="stylesheet" href="css/profile.css" /> 
+
+	</head>
+
+	<body>
+		<div id="container">
+
+			<% include menu_nav.html %>
+
+			<div id="titulo">
+
+				<h1>Lista de recetas</h1>
+
+			</div>  <!-- Cierre del titulo -->
+
+
+			<!-- Lista de recetas  -->
+			<div id="info">
+
+				<!-- LISTA DE RECETAS -->
+				
+				<!-- Mostrar una lista de recetas, sólo el campo nombre -->
+				<ul>
+					<% for(var i = 0; i<recetas.length; i++){ %>
+					    <li><%= recetas[i].nombre %></li>
+					<% } %>
+				</ul>
+
+			</div> <!-- Cierre de recetas -->
+
+		</div> <!-- Cierre del container -->
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Borrar receta </title>
+		
+		<!-- Importamos el estilo css -->
+		<link rel="stylesheet" href="css/profile.css" /> 
+
+	</head>
+
+	<body>
+		<div id="container">
+
+			<% include menu_nav.html %>
+
+			<div id="titulo">
+
+				<h1> Borrar receta </h1>
+
+			</div>  <!-- Cierre del titulo -->
+
+			<!-- Botón para borrar las recetas-->
+			<div id="boton">
+
+				<form action="/borrarRecetas" method="post">
+
+					<div id="nombre">
+							<label> Introduce el nombre de la receta </label> <br />
+							<input type="text" name="nombre">
+					</div> <!-- Cierre del nombre-->
+
+
+					<button type="submit"> Borrar </button><br /><br />
+
+				</form>
+
+			</div> <!-- Cierre de borrarRecetas -->
+
+		</div> <!-- Cierre del container -->
+</body>
+</html>

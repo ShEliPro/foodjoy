@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Agregar Recetas </title>
+		
+		<!-- Importamos el estilo css -->
+		<link rel="stylesheet" href="css/profile.css" /> 
+
+	</head>
+
+	<body>
+		<div id="container">
+
+			<% include menu_nav.html %>
+
+			<div id="titulo">
+
+				<h1> Añadir recetas </h1>
+
+			</div>  <!-- Cierre del titulo -->
+
+			<!-- Botón para añadir las recetas-->
+			<div id="boton">
+
+				<form action="/agregarRecetas" method="post">
+
+					<div id="nombre">
+							<label> Nombre </label> <br />
+							<input type="text" name="nombre">
+					</div> <!-- Cierre del nombre-->
+
+					<div id="ingredientes">
+							<label> Ingredientes </label> <br />
+							<input type="text" name="ingredientes">
+					</div> <!-- Cierre del ingredientes-->
+
+					<button type="submit"> Añadir </button>
+
+				</form>
+
+			</div> <!-- Cierre del formulario -->
+
+		</div> <!-- Cierre del container -->
+</body>
+</html>

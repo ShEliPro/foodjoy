@@ -6,16 +6,22 @@
 		<!-- Importamos el estilo css -->
 		<link rel="stylesheet" href="css/profile.css" /> 
 
+		<style type="text/css">
+
+			input {
+
+				width: 200px;
+	
+			}
+
+		</style>
+
 	</head>
 
 	<body>
 		<div id="container">
 
-			<nav id="menu_nav">
-
-				<a href="/logout">Logout</a>
-
-			</nav> <!-- Cierre del menu nav-->
+			<% include menu_nav.html %>
 
 			<div id="user">
 
@@ -23,96 +29,73 @@
 				
 			</div> <!-- Cierre del user -->
 
-
+			<section id="bloque">
 			
-			<div id="info">
+				<!-- Botón para añadir las recetas-->
+				<div id="boton">
 
-				<!-- INFORMACIÓN DEL USUARIO -->
-				<h3>Datos del usuario </h3>
+					<form action="/agregarRecetas" method="post">
 
-				<p>
-					<strong>Usuario</strong>: <%= user.local.email %>
-				</p>
+						<h3> Añadir </h3>
 
-			</div> <!-- Cierre del dataUser -->
+						<div id="nombre">
+								<label> Nombre </label> <br />
+								<input type="text" name="nombre">
+						</div> <!-- Cierre del nombre-->
 
-			<!-- Botón para añadir las recetas-->
-			<div id="boton">
+						<div id="ingredientes">
+								<label> Ingredientes </label> <br />
+								<input type="text" name="ingredientes">
+						</div> <!-- Cierre del ingredientes-->
 
-				<form action="/agregarRecetas" method="post">
+						<button type="submit"> Añadir </button>
 
-					<h3> Añade recetas </h3>
+					</form>
 
-					<div id="nombre">
-							<label> Nombre </label> <br />
-							<input type="text" name="nombre">
-					</div> <!-- Cierre del nombre-->
+				</div> <!-- Cierre del añadirRecetas -->
 
-					<div id="ingredientes">
-							<label> Ingredientes </label> <br />
-							<input type="text" name="ingredientes">
-					</div> <!-- Cierre del ingredientes-->
+				
+				<!-- Formulario para modificar las recetas-->
+				<div id="boton">
 
-					<button type="submit"> Añadir </button>
+					<form action="/modificarRecetas" method="post">
 
-				</form>
-
-			</div> <!-- Cierre del listaRecetas -->
+						<h3> Modificar </h3>
 
 
+						<div id="nombre">
+								<label> Nombre </label> <br />
+								<input type="text" name="nombre">
+						</div> <!-- Cierre del nombre-->
 
-			<!-- Botón para listar las recetas-->
-			<div id="boton">
 
-				<form action="/listaRecetas" method="get">
+						<button type="submit"> Buscar </button><br /><br />
 
-					<button type="submit"> Lista de recetas</button>
+					</form>
 
-				</form>
+				</div> <!-- Cierre de modificarRecetas -->
 
-			</div> <!-- Cierre del listaRecetas -->
+				<!-- Botón para borrar las recetas-->
+				<div id="boton">
+
+					<form action="/borrarRecetas" method="post">
+
+						<h3> Borrar </h3>
+
+
+						<div id="nombre">
+								<label> Nombre </label> <br />
+								<input type="text" name="nombre">
+						</div> <!-- Cierre del nombre-->
+
+
+						<button type="submit"> Borrar </button><br /><br />
+
+					</form>
+
+				</div> <!-- Cierre de borrarRecetas -->
 			
-						<!-- Botón para borrar las recetas-->
-			<div id="boton">
-
-				<form action="/borrarRecetas" method="post">
-
-					<h3> Borra recetas </h3>
-
-
-					<div id="nombre">
-							<label> Introduce el nombre de la receta </label> <br />
-							<input type="text" name="nombre">
-					</div> <!-- Cierre del nombre-->
-
-
-					<button type="submit"> Borrar </button><br /><br />
-
-				</form>
-
-			</div> <!-- Cierre de borrarRecetas -->
-
-
-			<!-- Formulario para modificar las recetas-->
-			<div id="boton">
-
-				<form action="/modificarRecetas" method="post">
-
-					<h3> Modifica recetas </h3>
-
-
-					<div id="nombre">
-							<label> Nombre </label> <br />
-							<input type="text" name="nombre">
-					</div> <!-- Cierre del nombre-->
-
-
-					<button type="submit"> Buscar </button><br /><br />
-
-				</form>
-
-			</div> <!-- Cierre de borrarRecetas -->
-			
+			</section> <!-- Cierre del bloque-->
 
 		</div> <!-- Cierre del container -->
 	</body>

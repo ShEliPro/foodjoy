@@ -1,0 +1,155 @@
+/* ************************************************************************************************
+											Selector UNIVERSAL
+************************************************************************************************ */
+
+*{
+
+	margin: 0px;
+	padding: 0px;
+
+}
+
+/* ************************************************************************************************
+											Selectores por TIPO
+************************************************************************************************ */
+
+div #titulo > h1 {
+
+	font-size: 65px;
+	color: white;
+}
+
+div {
+
+	text-align: center;
+
+}
+
+h1{
+	color: white;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 40px;
+	text-shadow: black 0.1em 0.1em 0.2em;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+label{
+
+	color: white;
+	font: bold 16px Tahoma;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+
+input{
+
+	border-radius: 10px 10px; /* Para ovalar */
+	margin-bottom: 10px;
+	height: 17px;
+}
+
+input.error{
+	
+	background-color: #FF9;
+	border: 1px solid red;
+	border-radius: 10px 10px; /* Para ovalar */
+	
+}
+
+button{
+
+	color: black;
+	background-color: #D8F781;
+	border-color: #AEB404;
+	border-radius: 4px; /* Para ovalar */
+	padding: 6px 12px;
+	font-size: 14px;
+}
+
+body{
+	
+	width: 100%; /* Para que ocupe toda la pantalla */
+	background: url('/img/background.jpg') no-repeat center center fixed;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	-webkit-background-size: cover;
+
+}
+
+section{
+
+	display: block; /* Bloque */
+}
+
+
+/***********************************************************************************************
+									   		Selectores por CLASE 
+***********************************************************************************************/
+
+.usuario{
+
+	/*border: 1px solid white;*/
+	margin-bottom: 10px;
+
+}
+
+.password{
+
+
+	/*border: 1px solid white;*/
+	margin-bottom: 10px;
+}
+
+.enfoco{
+				
+	background-color: #D8F781;
+	border:1px solid green;
+	border-radius: 10px 10px; /* Para ovalar */
+				
+}
+
+
+/* ************************************************************************************************
+											Selectores por ID
+************************************************************************************************ */
+
+#container{
+
+	/*border: 3px solid red;*/
+	
+}
+
+#bloque{
+
+	/*border: 2px solid black;*/
+	display: -webkit-box; /* Chrome*/
+	-webkit-box-orient: horizontal; /* orientación horizontal*/
+	padding: 135px;
+	margin-top: 90px;
+
+}
+
+#registro{
+
+	/*border: 1px solid blue;*/
+	-webkit-box-flex: 1;
+	margin-top: 40px;
+
+}
+
+#titulo{
+
+	/*border: 1px solid yellow;*/
+	-webkit-box-flex: 1;
+
+}
+
+#login{
+
+	/*border: 1px solid green;*/
+	-webkit-box-flex: 1;
+	margin-top: 40px;
+
+}

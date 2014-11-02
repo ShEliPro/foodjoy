@@ -2,50 +2,26 @@
 <html>
 	<head>
 		<title> Modificar receta </title>
-
-		<!--  Importa el css de bootstrap 
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">-->
-
+		
 		<!-- Importamos el estilo css -->
 		<link rel="stylesheet" href="css/profile.css" /> 
-
-		<style type="text/css">
-
-			#info{
-
-				border: 0px;
-				background-color: white;
-			}
-
-			input {
-
-				width: 300px;
-			}
-
-		</style>
 
 	</head>
 
 	<body>
 		<div id="container">
 
-			<nav id="menu_nav">
-
-				<a href="/logout">Logout</a>
-
-			</nav> <!-- Cierre del menu nav-->
+			<% include menu_nav.html %>
 
 			<div id="titulo">
 
-				<h1>Modifica la receta</h1>
+				<h1> Modificar datos </h1>
 
 			</div>  <!-- Cierre del titulo -->
 
 			<div id="info">
 
 				<!-- INFORMACIÓN DE LA RECETA A MODIFICAR-->
-				<h3> Receta </h3>
 
 					<form action="/recetaModificada" method="post">
 
@@ -65,18 +41,6 @@
 				</form>
 
 			</div> <!-- Cierre del formulario de receta -->
-
-
-			<!-- Botón para ir al perfil-->
-			<div id="boton">
-
-				<form action="/profile" method="get">
-
-					<button type="submit"> Perfil </button>
-
-				</form>
-
-			</div> <!-- Cierre del botón perfil -->
 
 		</div> <!-- Cierre del container -->
 </body>

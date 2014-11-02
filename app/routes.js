@@ -1,6 +1,10 @@
 //Cargamos el modelo recetas
 var Recetas = require('../app/models/recetas');
 
+//Cargamos el modelo usuarios
+var User = require('../app/models/user');
+
+
 //module.exports es el objeto que se devuelve tras una llamada request
 //así podemos usar express y passport pasando como parámetro
 module.exports = function(app, passport) {
@@ -79,6 +83,11 @@ module.exports = function(app, passport) {
 	// RECETAS =============================
 	// =====================================
 
+	//Mostrar la página para agregarRecetas
+	app.get('/agregarRecetas', function(req, res) {
+		res.render('agregarRecetas.ejs');
+	});
+
 	//Añadir un documento a la colección de recetas
 	app.post('/agregarRecetas', function(req, res) {
 
@@ -101,8 +110,16 @@ module.exports = function(app, passport) {
 			}
 			else{
 
-				//Muestra por consola el objeto recetas
-				console.log(obj.nombre + ' ha sido guardado');
+				//Muestra el mensaje por consola
+  				console.log(obj.nombre + ' ha sido guardada.');
+				
+				//Muestra el mensaje en la página agregarRecetas.ejs
+				res.render('recetaAgregada', {
+					
+					receta: obj.nombre,
+					msg: ' ha sido guardada.'
+					
+				})
 			
 			//Cierre de else		
 			}
@@ -128,7 +145,7 @@ module.exports = function(app, passport) {
 			else{
 
 				//Muestra el objeto recetas en la plantilla recetas.ejs
-				res.render('recetas', {
+				res.render('recetasProfile', {
 					
 					recetas: recetas
 					
@@ -141,6 +158,11 @@ module.exports = function(app, passport) {
 		});
 		
 	//Cierre de la función
+	});
+
+	//Mostrar la página para borrarRecetas
+	app.get('/borrarRecetas', function(req, res) {
+		res.render('borrarRecetas.ejs');
 	});
 
 	
@@ -157,8 +179,16 @@ module.exports = function(app, passport) {
 			//Si no hay error
   			if (!err){
 
-  				//Muestra por consola el mensaje
-  				console.log(nombre + ' ha sido eliminado');
+  				//Muestra el mensaje por consola
+  				console.log(nombre + ' ha sido eliminada.');
+
+  				//Muestra el mensaje en la página borrarRecetas.ejs
+				res.render('recetaBorrada', {
+					
+					receta: nombre,
+					msg: ' ha sido eliminada.'
+					
+				})
   								
 
   			}else{
@@ -175,6 +205,10 @@ module.exports = function(app, passport) {
 	//Cierre de la función
 	});
 
+	//Mostrar la página para buscarReceta para modificar una receta
+	app.get('/modificarRecetas', function(req, res) {
+		res.render('buscarReceta.ejs');
+	});
 
 	//Obtener un documento de la colección de recetas
 	app.post('/modificarRecetas', function(req, res) {
@@ -190,7 +224,7 @@ module.exports = function(app, passport) {
   			if (!err){
 
   				//Mostramos un mensaje por consola
-  				console.log(nombre + ' va a ser modificado.');
+  				console.log(nombre + ' va a ser modificada.');
 
 				//Muestra el objeto receta en la página modificarRecetas.ejs
 				res.render('modificarRecetas', {
@@ -223,7 +257,6 @@ module.exports = function(app, passport) {
 
 		Recetas.update({nombre: nombre}, { nombre: nombre, ingredientes: ingredientes}, null, function (err) {
 
-
 			//Si hay error
 			if (err){
 				
@@ -232,8 +265,18 @@ module.exports = function(app, passport) {
 		    }
 		    else{
 
-		    	//Muestra por consola
-		    	console.log(nombre+" ha sido modificado.");
+		    	//Muestra el mensaje por consola
+		    	console.log(nombre+" ha sido modificada.");
+
+		    	//Muestra el mensaje y los datos de la receta en la página recetaModificada.ejs
+				res.render('recetaModificada', {
+					
+					receta: nombre,
+					msg: ' ha sido modificada con los siguientes datos:',
+					nombre: nombre,
+					ingredientes: ingredientes
+					
+				})
 
 			//Cierre del else	
 		    }
@@ -250,14 +293,59 @@ module.exports = function(app, passport) {
 	// =====================================
 	// ADMIN ===============================
 	// =====================================
+
+	//Panel del administrador
 	app.get('/admin', function(req, res) {
 		res.render('admin.ejs');
 	});
 
+	//Obtener el número de usuarios
+	app.get('/admin/usuarios', function(req, res) {
 
+		User.count({}, function( err, count){
+
+		    console.log( "Numero de usuarios:", count );
+
+		    res.render('usuarios', {
+					
+					usuarios: count
+			
+			//Cierre de la función render		
+			})
+
+		//Cierre del método count   
+		})
+	
+	//Cierre de la función	
+	});
+
+	//Obtener el número de las recetas
+	app.get('/admin/recetas', function(req, res) {
+
+		Recetas.count({}, function( err, count){
+
+		    console.log( "Numero de recetas:", count );
+
+		    res.render('recetasAdmin', {
+					
+					recetas: count
+			
+			//Cierre de la función render		
+			})
+
+		//Cierre del método count 
+		})
+		
+	//Cierre de la función
+	});
+
+
+//Cierre del module.exports
 };
 
-//Función para saber si aun sigue logueado
+
+
+//Función para saber si aún sigue logueado
 //Un usuario tiene que estar conectado para tener acceso a esta ruta. 
 function isLoggedIn(req, res, next) {
 
@@ -267,4 +355,6 @@ function isLoggedIn(req, res, next) {
 
 	//si el usuario no está logueado y trata de acceder, redireccionamos a la página principal
 	res.redirect('/');
+
+//Cierre de la función isLoggedIn
 }
