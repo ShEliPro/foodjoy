@@ -26,7 +26,25 @@
 
 			<div id="info">
 
-				<strong>Número de usuarios: </strong> <%= usuarios %>
+				<strong>Número de usuarios: </strong> <%= usuarios %> <br /><br />
+
+				<!-- Mostrar una tabla de usuario, sólo el campo email -->
+				<table border="1">
+
+					<tr>
+					 <td> Nombre</td>
+					 <td> Contraseña</td>
+					</tr>
+
+
+					<% for(var i = 0; i<usuario.length; i++){ %>
+					<tr>
+						 <td><%= usuario[i].local.email %></td>
+						 <td><%= usuario[i].local.password %></td>
+					<% } %>
+					</tr>
+
+				</table>
 
 			</div>
 

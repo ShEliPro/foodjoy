@@ -302,19 +302,27 @@ module.exports = function(app, passport) {
 	//Obtener el número de usuarios
 	app.get('/admin/usuarios', function(req, res) {
 
-		User.count({}, function( err, count){
+		User.count({}, function(err,count){
 
-		    console.log( "Numero de usuarios:", count );
+		    console.log("Numero de usuarios:", count);
 
-		    res.render('usuarios', {
+		    User.find({}, function(err,user){
+
+		    	res.render('usuarios', {
 					
-					usuarios: count
-			
-			//Cierre de la función render		
-			})
+						usuarios: count,
+						usuario: user
+				
+				//Cierre de la función render		
+				})
+
+		    //Cierre de la función find			
+		    });
+
 
 		//Cierre del método count   
 		})
+
 	
 	//Cierre de la función	
 	});
@@ -326,12 +334,18 @@ module.exports = function(app, passport) {
 
 		    console.log( "Numero de recetas:", count );
 
-		    res.render('recetasAdmin', {
+		    Recetas.find({}, function(err,receta){
+
+		    	res.render('recetasAdmin', {
 					
-					recetas: count
-			
-			//Cierre de la función render		
-			})
+						recetas: count,
+						receta: receta
+				
+				//Cierre de la función render		
+				})
+
+		    //Cierre de la función find			
+		    });
 
 		//Cierre del método count 
 		})

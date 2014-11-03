@@ -26,9 +26,25 @@
 
 			<div id="info">
 
-				<strong>Número de recetas: </strong> <%= recetas %>
+				<strong>Número de recetas: </strong> <%= recetas %> <br /><br />
+
+				<!-- Mostrar una tabla de recetas, sólo el campo email -->
+				<table border="1">
+
+					<tr>
+					 <td> Nombre</td>
+					 <td> Ingredientes </td>
+					</tr>
 
 
+					<% for(var i = 0; i<receta.length; i++){ %>
+					<tr>
+						 <td><%= receta[i].nombre %></td>
+						 <td><%= receta[i].ingredientes %></td>
+					<% } %>
+					</tr>
+
+				</table>
 			</div>
 
 		</div> <!-- Cierre del div container -->
