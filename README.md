@@ -28,3 +28,6 @@ Enlace Heroku: (actualizado cada semana) https://foodjoy-sheli.herokuapp.com/
 Actualizado cada cambio realizado en GitHub.
 
 Una copia de seguridad en Dropbox.
+
+email oficial: 
+	foodjoysocial@gmail.com
