@@ -7,7 +7,10 @@ var bcrypt   = require('bcrypt-nodejs'); //Sirve para cifrar la contraseña
 //Se define el schema que vamos a utilizar para los users
 var userSchema= mongoose.Schema({
 
-	//El email y la contraseña se guardarán en el modelo antes de introducir a la base de datos
+	//El id, el email y la contraseña se guardarán en el modelo antes de introducir a la base de datos
+	_id: {
+        $oid: String
+    },
     local            : {
         email        : String,
         password     : String,

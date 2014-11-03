@@ -32,13 +32,15 @@
 				<table border="1">
 
 					<tr>
-					 <td> Nombre</td>
-					 <td> Ingredientes </td>
+						<td> id </td>
+						<td> Nombre </td>
+						<td> Ingredientes </td>
 					</tr>
 
 
 					<% for(var i = 0; i<receta.length; i++){ %>
 					<tr>
+						 <td><a href="#"><%= receta[i]._id %></a></td>
 						 <td><%= receta[i].nombre %></td>
 						 <td><%= receta[i].ingredientes %></td>
 					<% } %>

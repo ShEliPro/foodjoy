@@ -32,15 +32,17 @@
 				<table border="1">
 
 					<tr>
-					 <td> Nombre</td>
-					 <td> Contraseña</td>
+					 <td> id </td>
+					 <td> Nombre </td>
+					 <td> Contraseña </td>
 					</tr>
 
 
 					<% for(var i = 0; i<usuario.length; i++){ %>
 					<tr>
-						 <td><%= usuario[i].local.email %></td>
-						 <td><%= usuario[i].local.password %></td>
+						<td><%= usuario[i]._id %></td>
+						<td><%= usuario[i].local.email %></td>
+						<td><%= usuario[i].local.password %></td>
 					<% } %>
 					</tr>
 
