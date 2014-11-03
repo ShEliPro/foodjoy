@@ -135,6 +135,7 @@ section{
 
 	/*border: 1px solid blue;*/
 	-webkit-box-flex: 1;
+	-webkit-box-flex-direction: row;
 	margin-top: 40px;
 
 }
@@ -143,6 +144,7 @@ section{
 
 	/*border: 1px solid yellow;*/
 	-webkit-box-flex: 1;
+	-webkit-box-flex-direction: row;
 
 }
 
@@ -150,6 +152,7 @@ section{
 
 	/*border: 1px solid green;*/
 	-webkit-box-flex: 1;
+	-webkit-box-flex-direction: row;
 	margin-top: 40px;
 
 }

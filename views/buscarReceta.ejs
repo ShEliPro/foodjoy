@@ -18,24 +18,20 @@
 				<h1> Receta a modificar </h1>
 
 			</div>  <!-- Cierre del titulo -->
+			
 
 			<!-- Formulario para modificar la receta-->
-			<div id="boton">
+			<form id="buscarForm" action="/modificarRecetas" method="post">
 
-				<form action="/modificarRecetas" method="post">
-
-
-					<div id="nombre">
-							<label> Nombre </label> <br />
-							<input type="text" name="nombre">
-					</div> <!-- Cierre del nombre-->
+				<div class="nombre">
+						<label> Nombre </label> <br />
+						<input type="text" name="nombre">
+				</div> <!-- Cierre del nombre-->
 
 
-					<button type="submit"> Buscar </button><br /><br />
+				<button type="submit"> Buscar </button>
 
-				</form>
-
-			</div> <!-- Cierre de modificarRecetas -->
+			</form> <!-- Cierre del formulario modificarRecetas -->
 
 		</div> <!-- Cierre del container -->
 	</body>

@@ -19,22 +19,19 @@
 
 			</div>  <!-- Cierre del titulo -->
 
+
 			<!-- Botón para borrar las recetas-->
-			<div id="boton">
+			<form id="borrarForm" action="/borrarRecetas" method="post">
 
-				<form action="/borrarRecetas" method="post">
-
-					<div id="nombre">
-							<label> Introduce el nombre de la receta </label> <br />
-							<input type="text" name="nombre">
-					</div> <!-- Cierre del nombre-->
+				<div class="nombre">
+						<label> Nombre </label> <br />
+						<input type="text" name="nombre">
+				</div> <!-- Cierre del nombre-->
 
 
-					<button type="submit"> Borrar </button><br /><br />
+				<button type="submit"> Borrar </button>
 
-				</form>
-
-			</div> <!-- Cierre de borrarRecetas -->
+			</form> <!-- Cierre del formulario borrarRecetas -->
 
 		</div> <!-- Cierre del container -->
 </body>

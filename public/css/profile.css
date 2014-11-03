@@ -12,9 +12,15 @@
 /* ************************************************************************************************
 											Selectores por TIPO
 ************************************************************************************************ */
+body{
+	
+	width: 100%; /* Para que ocupe toda la pantalla */
+
+}
 
 h3{
 	margin-bottom: 10px;
+
 }
 
 a{
@@ -23,9 +29,19 @@ a{
 
 }
 
+form{
+
+	margin-left: 50px;
+	padding: 10px;
+
+}
+
 input {
 
 	width: 300px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px 10px; /* Para ovalar */
 	
 }
 
@@ -40,24 +56,50 @@ button{
 
 }
 
-li{
 
-	list-style: none;
 
-}
 
-body{
-	
-	width: 100%; /* Para que ocupe toda la pantalla */
-
-}
 
 
 /***********************************************************************************************
 									   		Selectores por CLASE 
 ***********************************************************************************************/
 
+.agregar{
 
+	/*border: 2px solid purple;*/
+	padding: 20px;
+
+}
+
+.modificar{
+
+	/*border: 2px solid purple;*/
+	padding: 20px;
+
+
+}
+
+.borrar{
+
+	/*border: 2px solid purple;*/
+	padding: 20px;
+
+}
+
+.nombre{
+
+	/*border: 1px solid red;*/
+	margin-bottom: 10px;
+
+}
+
+.ingredientes{
+
+
+	/*border: 1px solid red;*/
+	margin-bottom: 10px;
+}
 
 
 /* ************************************************************************************************
@@ -82,19 +124,22 @@ body{
 #titulo{
 
 	/*border: 2px solid pink;*/
-	text-align: center;
+	display: -webkit-box; /* Chrome*/
+	-webkit-box-pack: center;
 
 }
 
 #user{
 
 	/*border: 2px solid pink;*/
-	text-align: center;
+	display: -webkit-box; /* Chrome*/
+	-webkit-box-pack: center;
 
 }
 
 #bloque{
 
+	/*border: 3px solid black;*/
 	display: -webkit-box; /* Chrome*/
 	-webkit-box-orient: horizontal; /* orientación horizontal*/
 	-webkit-box-pack: center;
@@ -102,32 +147,19 @@ body{
 
 }
 
+#agregarForm, #buscarForm, #borrarForm, #modificarForm, #infoRecetas{
+
+	display: -webkit-box; /* Chrome*/
+	-webkit-box-align: center;
+	-webkit-box-orient: vertical; /* orientación vertical*/
+	margin-top: 40px;
+
+}
+
 #info{
 
-	width: 30%;
-	margin-left: 50px;
-	padding: 10px;
-}
-
-#nombre{
-
-	/*border: 1px solid red;*/
-	margin-bottom: 10px;
-
-}
-
-#ingredientes{
-
-
-	/*border: 1px solid red;*/
-	margin-bottom: 10px;
-}
-
-
-#boton{
-
-	/*border: 2px solid blue;*/
-	margin-left: 50px;
-	padding: 10px;
-
+	display: -webkit-box; /* Chrome*/
+	-webkit-box-align: center;
+	-webkit-box-orient: vertical; /* orientación vertical*/
+	margin-top: 40px;
 }

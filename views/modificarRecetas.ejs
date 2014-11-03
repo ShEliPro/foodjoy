@@ -19,28 +19,23 @@
 
 			</div>  <!-- Cierre del titulo -->
 
-			<div id="info">
+			<!-- INFORMACIÓN DE LA RECETA A MODIFICAR-->
+			<form id="modificarForm" action="/recetaModificada" method="post">
 
-				<!-- INFORMACIÓN DE LA RECETA A MODIFICAR-->
+				<div class="nombre">
+							<label> Nombre </label> <br />
+							<input type="text" name="nombre" value="<%= receta.nombre %>">
+				</div> <!-- Cierre del nombre -->
 
-					<form action="/recetaModificada" method="post">
+				<div class="ingredientes">
+							<label> Ingredientes </label> <br />
+							<input type="text" name="ingredientes" value="<%= receta.ingredientes %>">
 
-					<div id="nombre">
-								<label> Nombre </label> <br />
-								<input type="text" name="nombre" value="<%= receta.nombre %>">
-					</div> <!-- Cierre del nombre -->
+				</div> <!-- Cierre del ingredientes -->
 
-					<div id="ingredientes">
-								<label> Ingredientes </label> <br />
-								<input type="text" name="ingredientes" value="<%= receta.ingredientes %>">
+				<button type="submit"> 	Modificar </button><br /><br />
 
-					</div> <!-- Cierre del ingredientes -->
-
-					<button type="submit"> 	Modificar </button><br /><br />
-
-				</form>
-
-			</div> <!-- Cierre del formulario de receta -->
+			</form> <!-- Cierre del formulario de receta -->
 
 		</div> <!-- Cierre del container -->
 </body>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title> Agregar Recetas </title>
+		<title> Añadir recetas </title>
 		
 		<!-- Importamos el estilo css -->
 		<link rel="stylesheet" href="css/profile.css" /> 
@@ -19,27 +19,23 @@
 
 			</div>  <!-- Cierre del titulo -->
 
-			<!-- Botón para añadir las recetas-->
-			<div id="boton">
+			<!-- Formulario para añadir las recetas-->
+			<form id="agregarForm" action="/agregarRecetas" method="post">
 
-				<form action="/agregarRecetas" method="post">
+				<div class="nombre">
+						<label> Nombre </label> <br />
+						<input type="text" name="nombre">
+				</div> <!-- Cierre del nombre-->
 
-					<div id="nombre">
-							<label> Nombre </label> <br />
-							<input type="text" name="nombre">
-					</div> <!-- Cierre del nombre-->
+				<div class="ingredientes">
+						<label> Ingredientes </label> <br />
+						<input type="text" name="ingredientes">
+				</div> <!-- Cierre del ingredientes-->
 
-					<div id="ingredientes">
-							<label> Ingredientes </label> <br />
-							<input type="text" name="ingredientes">
-					</div> <!-- Cierre del ingredientes-->
+				<button type="submit"> Añadir </button>
 
-					<button type="submit"> Añadir </button>
-
-				</form>
-
-			</div> <!-- Cierre del formulario -->
+			</form> <!-- Cierre del formulario -->
 
 		</div> <!-- Cierre del container -->
-</body>
+	</body>
 </html>

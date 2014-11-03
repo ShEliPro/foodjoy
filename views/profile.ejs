@@ -31,19 +31,19 @@
 
 			<section id="bloque">
 			
-				<!-- Botón para añadir las recetas-->
-				<div id="boton">
+				<!-- Formulario para añadir las recetas-->
+				<div class="agregar">
 
 					<form action="/agregarRecetas" method="post">
 
 						<h3> Añadir </h3>
 
-						<div id="nombre">
+						<div class="nombre">
 								<label> Nombre </label> <br />
 								<input type="text" name="nombre">
 						</div> <!-- Cierre del nombre-->
 
-						<div id="ingredientes">
+						<div class="ingredientes">
 								<label> Ingredientes </label> <br />
 								<input type="text" name="ingredientes">
 						</div> <!-- Cierre del ingredientes-->
@@ -56,40 +56,39 @@
 
 				
 				<!-- Formulario para modificar las recetas-->
-				<div id="boton">
+				<div class="modificar">
 
 					<form action="/modificarRecetas" method="post">
 
 						<h3> Modificar </h3>
 
-
-						<div id="nombre">
+						<div class="nombre">
 								<label> Nombre </label> <br />
 								<input type="text" name="nombre">
 						</div> <!-- Cierre del nombre-->
 
 
-						<button type="submit"> Buscar </button><br /><br />
+						<button type="submit"> Buscar </button>
 
 					</form>
 
 				</div> <!-- Cierre de modificarRecetas -->
 
-				<!-- Botón para borrar las recetas-->
-				<div id="boton">
+
+				<!-- Formulario para borrar las recetas-->
+				<div class="borrar">
 
 					<form action="/borrarRecetas" method="post">
 
 						<h3> Borrar </h3>
 
-
-						<div id="nombre">
+						<div class="nombre">
 								<label> Nombre </label> <br />
 								<input type="text" name="nombre">
 						</div> <!-- Cierre del nombre-->
 
 
-						<button type="submit"> Borrar </button><br /><br />
+						<button type="submit"> Borrar </button>
 
 					</form>
 
