@@ -13,7 +13,10 @@ var bodyParser = require('body-parser'); //para poder coger datos del html media
 
 var app      = express(); //Se instancia una nueva variable llamado app para utilizar los método que contiene la dependencia express
 var port     = process.env.PORT || 3000; //Se configura el puerto
+
 var configDB = require('./config/database.js'); //Se está configuran la base de datos. Estamos importando el archivo database.js que está en el directorio config
+
+var nodemailer = require('nodemailer'); //para enviar correos
 
 
 //CONFIGURACIÓN ===============================================================

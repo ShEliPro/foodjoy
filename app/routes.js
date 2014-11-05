@@ -7,7 +7,7 @@ var User = require('../app/models/user');
 
 //module.exports es el objeto que se devuelve tras una llamada request
 //así podemos usar express y passport pasando como parámetro
-module.exports = function(app, passport) {
+module.exports = function(app, passport, nodemailer) {
 
 // RUTAS ===============================================================
 
@@ -28,6 +28,7 @@ module.exports = function(app, passport) {
 
 		successRedirect : '/profile', //si los datos son correctos entraremos al perfil
 		failureRedirect : '/', //si hay un error o los datos no son correctos redirecciona a la página principal
+
 
 	}));
 
@@ -352,6 +353,44 @@ module.exports = function(app, passport) {
 		
 	//Cierre de la función
 	});
+
+	app.post('/mail', function(req, res){
+
+
+		// create reusable transporter object using SMTP transport
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'foodjoysocial@gmail.com',
+        pass: 'foodjoysocialelisheila'
+    }
+});
+
+// NB! No need to recreate the transporter object. You can use
+// the same transporter object for all e-mails
+
+// setup e-mail data with unicode symbols
+var mailOptions = {
+    from: 'foodjoysocial@gmail.com', // sender address
+    to: 'foodjoysocial@gmail.com', // list of receivers
+    subject: 'Hello ✔', // Subject line
+    text: 'Hello world ✔', // plaintext body
+    html: '<b>Hello world ✔</b>' // html body
+};
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        console.log(error);
+    }else{
+        console.log('Message sent: ' + info.response);
+    }
+});
+
+		
+
+
+	});//cierre /mail
 
 
 //Cierre del module.exports
