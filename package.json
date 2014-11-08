@@ -1,6 +1,6 @@
 {
-  "name": "Application",
-  "description": "Aplicación de prueba",
+  "name": "FoodJoy",
+  "description": "Red Social Gastronómica",
   "main": "server.js",
   "dependencies": {
     "bcrypt-nodejs": "latest",
