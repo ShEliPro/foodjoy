@@ -51,10 +51,11 @@ module.exports = function(passport) {
             // si hay errores, devuelve el error
             if (err)
                 return done(err);
-
+                console.log("ERROR");
             // comprueba si el email ya existe, si es así muestra un mensaje flash
             if (user) {
-                return done(null, false, req.flash('signupMessage', 'Este usuario ya está registrado.'));
+                return done(err);
+                console.log("El usuario ya existe");
             } else {
 
                 // si no existe el email en la BD crea el usuario con las credenciales introducidas

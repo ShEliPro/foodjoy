@@ -32,6 +32,7 @@ module.exports = function(app, passport) {
 
 			successRedirect : '/profile', //si los datos son correctos entraremos al perfil
 			failureRedirect : '/', //si hay un error o los datos no son correctos redirecciona a la página principal
+
 		})
 
 	);
@@ -65,7 +66,7 @@ module.exports = function(app, passport) {
 		
 		var domain = 'sandbox30d928b0fd864f9682ebe41b12e4056f.mailgun.org';
 		var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
-		var email = 'sheilapbi@gmail.com';
+		var email = 'foodjoysocial@gmail.com';
 
 		console.log('email '+email);
 
