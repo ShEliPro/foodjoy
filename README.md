@@ -33,3 +33,21 @@ Una copia de seguridad en Dropbox.
 
 email oficial: 
 	foodjoysocial@gmail.com
+
+Estructura del proyecto
+-----------------------
+
+| Nombre                             | Descripción                                             |
+| ---------------------------------- |:-----------------------------------------------------------:|
+| **app/models**/recetas.js          | Estructura del Schema de recetas Mongoose .                 |
+| **app/models**/user.js             | Estructura del Schema de user Mongoose.                     |
+| **app**/routes.js                  | Se definen todas las rutas de la aplicación.                |
+| **config**/passport.js             | Autenticar al usuario con el Passport Local                 |
+| **config**/database.js             | Conexión con la base de datos MongoLab (nube).              |
+| **public**/                        | Ficheros estáticos ( css, js, img).                         |
+| **public**/**js**/formulario.js    | Funciones de JavaScript para el lado cliente.               |
+| **public**/**js**/jquery.js        | Fichero externo para jQuery para el lado cliente.           |
+| **public**/**css**/main.css        | Main stylesheet para la página principal .                  |
+| **public**/**css**/profile.css     | Profile stylesheet para cada perfil de usuario.             |
+| **views**/index.ejs                | Página principal con la plantilla ejs.                      |
+| server.js                          | Aplicación.                                                 |
