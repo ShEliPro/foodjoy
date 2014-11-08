@@ -20,7 +20,7 @@ Tecnologías a usar:
 
 Para acceder a la base de datos desde el terminal hay que escribir el siguiente código:
 
-	USER=xxxxx PASSWORD=xxxxx nodemon server.js
+	USER=xxxxxxx PASSWORD=xxxxxxxxx API_KEY=xxxxxxxxxxxxx nodemon server.js
 
 
 Enlace Heroku: (actualizado todos los dias) https://foodjoy-sheli.herokuapp.com/
