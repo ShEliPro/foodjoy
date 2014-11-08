@@ -65,7 +65,7 @@ Lista de dependencias
 | express-session                 | Necesario junto con cookie-parser. |
 | morgan                          | Muestra mensajes por consola. |
 | method-override                 | Express 4.0 middleware. |
-| ejs                             | Plantilla para Express. |
+| ejs                             | Motor de plantillas para Express. |
 | mongoose                        | MongoDB ODM. |
 | mailgun-js                      | Enviar emails con Node.js. |
 | passport                        | Autenticar usuario. |
