@@ -119,12 +119,26 @@ module.exports = function(app, passport) {
 	// =====================================
 
 	//Mostrar la página para agregarRecetas
-	app.get('/agregarRecetas', function(req, res) {
+	app.get('/agregarRecetas', isLoggedIn, function(req, res) {
 		res.render('agregarRecetas.ejs');
 	});
 
 	//Añadir un documento a la colección de recetas
-	app.post('/agregarRecetas', function(req, res) {
+	app.post('/agregarRecetas',  isLoggedIn,function(req, res) {
+
+		if(req.body.nombre==""){
+
+			res.render('error.ejs', {
+				mensaje: 'El nombre de la receta es vacio'
+			});
+
+		}else if(req.body.ingredientes==""){
+
+			res.render('error.ejs', {
+				mensaje: 'Una receta DEBE tener al menos UN ingrediente'
+			});
+
+		}
 
 		//Creamos una variable para crear un objeto de tipo Recetas
 		var recetas = new Recetas ({
@@ -134,6 +148,7 @@ module.exports = function(app, passport) {
 
 		});
 
+
 		//Para guardar dicha instancia en la base de datos
 		recetas.save(function (err, obj) {
 
@@ -142,6 +157,9 @@ module.exports = function(app, passport) {
 				
 				//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
+		    	res.render('error.ejs', {
+				mensaje: ''
+			});
 			}
 			else{
 
@@ -168,7 +186,7 @@ module.exports = function(app, passport) {
 
 
 	//Obtener toda la colección de recetas
-	app.get('/listaRecetas', function(req, res) {
+	app.get('/listaRecetas',  isLoggedIn, function(req, res) {
 		
 		Recetas.find({},function(err,recetas){
 			
@@ -198,13 +216,13 @@ module.exports = function(app, passport) {
 	});
 
 	//Mostrar la página para borrarRecetas
-	app.get('/borrarRecetas', function(req, res) {
+	app.get('/borrarRecetas', isLoggedIn,function(req, res) {
 		res.render('borrarRecetas.ejs');
 	});
 
 	
 	//Borrar un documento a la colección de recetas
-	app.post('/borrarRecetas', function(req, res) {
+	app.post('/borrarRecetas', isLoggedIn, function(req, res) {
 
 
 		//Creamos una variable para obtener el nombre del formulario de la receta a eliminar 
@@ -244,18 +262,18 @@ module.exports = function(app, passport) {
 	});
 
 	//Mostrar la página para buscarReceta para modificar una receta
-	app.get('/modificarRecetas', function(req, res) {
+	app.get('/modificarRecetas', isLoggedIn, function(req, res) {
 		res.render('buscarReceta.ejs');
 	});
 
 	//Obtener un documento de la colección de recetas
-	app.post('/modificarRecetas', function(req, res) {
+	app.post('/modificarRecetas', isLoggedIn, function(req, res) {
 
 
 		//Creamos una variable para obtener el nombre del formulario de la receta a obtener
 		var nombre = req.body.nombre;
 
-		if(nombre==null){
+		if(nombre==null || nombre==""){
 			res.render('error.ejs', {
 				mensaje: 'El nombre de la receta es vacio'
 			});
@@ -295,7 +313,7 @@ module.exports = function(app, passport) {
 
 
 	//Modificar un documento de la colección de recetas
-	app.post('/recetaModificada', function(req, res) {
+	app.post('/recetaModificada', isLoggedIn, function(req, res) {
 
 		//Guardamos los datos obtenidos desde el formulario en las variables a modificar
 		var nombre= req.body.nombre;
@@ -343,14 +361,14 @@ module.exports = function(app, passport) {
 	// =====================================
 
 	//Panel del administrador
-	app.get('/admin', function(req, res) {
+	app.get('/admin', isLoggedIn, function(req, res) {
 		res.render('admin.ejs');
 	});
 
 
 	//Usuarios =============================
 	//Obtener el número de usuarios
-	app.get('/admin/usuarios', function(req, res) {
+	app.get('/admin/usuarios', isLoggedIn, function(req, res) {
 
 		User.count({}, function(err,count){
 
@@ -378,7 +396,7 @@ module.exports = function(app, passport) {
 	});
 
 	//Borrar un documento a la colección de usuarios
-	app.post('/borrarUsuarios', function(req, res) {
+	app.post('/borrarUsuarios', isLoggedIn, function(req, res) {
 
 		//Creamos una variable para obtener el id del formulario de usuario a eliminar 
 		var id= req.body.id;
@@ -419,7 +437,7 @@ module.exports = function(app, passport) {
 
 	//Recetas  =============================
 	//Obtener el número de las recetas
-	app.get('/admin/recetas', function(req, res) {
+	app.get('/admin/recetas', isLoggedIn, function(req, res) {
 
 		Recetas.count({}, function( err, count){
 
@@ -445,7 +463,7 @@ module.exports = function(app, passport) {
 	});
 
 	//Eliminar un documento a la colección de recetas
-	app.post('/eliminarRecetas', function(req, res) {
+	app.post('/eliminarRecetas', isLoggedIn, function(req, res) {
 
 		//Creamos una variable para obtener el id del formulario de receta a eliminar 
 		var id= req.body.id;
@@ -483,7 +501,7 @@ module.exports = function(app, passport) {
 	//Cierre de la función
 	});
 
-	app.post('/mail', function(req, res){
+	app.post('/mail', isLoggedIn, function(req, res){
 
 		// email info
 		var api_key = 'key-11cfde82cdbb7bb9b3f575fc956f79f1';
@@ -510,15 +528,15 @@ module.exports = function(app, passport) {
 		});
 	});//cierre mail
 
-	app.get('/error', function(req, res) { 
+	app.get('/error', isLoggedIn, function(req, res) { 
 
 		//si hay un error se renderiza una página que dice ERROR
-		res.render('error.ejs');
+		res.render('error.ejs', {
+				mensaje: ''
+			});
 
 	//Cierre de la función
 	});
-
-
 
 //Cierre del module.exports
 };

@@ -139,7 +139,11 @@ section{
 /* ************************************************************************************************
 											Selectores por ID
 ************************************************************************************************ */
-
+#error > h2{
+	
+	color: white;
+	background: red;
+}
 
 /*Cuando la anchura de la ventana contenga como máximo 800px */
 @media all and (max-width:800px){
