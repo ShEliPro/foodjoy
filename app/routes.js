@@ -255,6 +255,12 @@ module.exports = function(app, passport) {
 		//Creamos una variable para obtener el nombre del formulario de la receta a obtener
 		var nombre = req.body.nombre;
 
+		if(nombre==null){
+			res.render('error.ejs', {
+				mensaje: 'El nombre de la receta es vacio'
+			});
+		}
+
 		//Para borrar una receta mediante el nombre
 		Recetas.findOne({nombre: nombre},function (err,receta) {
 
