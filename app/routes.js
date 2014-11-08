@@ -175,6 +175,7 @@ module.exports = function(app, passport) {
 				
 				//Muestra por consola
 				console.log(err);
+				res.render('error');
 			}
 			else{
 
@@ -229,6 +230,7 @@ module.exports = function(app, passport) {
 		      
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
+		    	res.render('error');
 
 		  }
 
@@ -272,6 +274,7 @@ module.exports = function(app, passport) {
 		      
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
+		    	res.render('error');
 			}
 
 
@@ -296,6 +299,7 @@ module.exports = function(app, passport) {
 				
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
+		    	res.render('error');
 		    }
 		    else{
 
@@ -391,6 +395,7 @@ module.exports = function(app, passport) {
 		      
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
+		    	res.render('error');
 
 		  }
 
@@ -457,6 +462,7 @@ module.exports = function(app, passport) {
 		      
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
+		    	res.render('error');
 
 		  }
 
