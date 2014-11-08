@@ -37,7 +37,7 @@ email oficial:
 Estructura del proyecto
 -----------------------
 
-| Nombre                             | Descripción                                             |
+| Nombre                             | Descripción                                                 |
 | ---------------------------------- |:-----------------------------------------------------------:|
 | **app**/routes.js                  | Se definen todas las rutas de la aplicación.                |
 | **app/models**/recetas.js          | Estructura del Schema de recetas Mongoose .                 |
@@ -51,3 +51,22 @@ Estructura del proyecto
 | **public**/**css**/profile.css     | Profile stylesheet para cada perfil de usuario.             |
 | **views**/index.ejs                | Página principal con la plantilla ejs.                      |
 | server.js                          | Aplicación.                                                 |
+
+
+Lista de dependencias
+----------------
+
+| Dependencia                     |  Descripción  |
+| ------------------------------- |:-------------:|
+| bcrypt-nodejs                   | Encriptar contraseñas. |
+| express                         | Framework para Node.js |
+| body-parser                     | Express 4.0 middleware. |
+| cookie-parser                   | Express 4.0 middleware. |
+| express-session                 | Express 4.0 middleware. |
+| morgan                          | Express 4.0 middleware. |
+| method-override                 | Express 4.0 middleware. |
+| ejs                             | Plantilla para Express. |
+| mongoose                        | MongoDB ODM. |
+| mailgun-js                      | Enviar emails con Node.js |
+| passport                        | Autenticar usuario. |
+| passport-local                  | Autenticar localmente (usuario y contraseña) |
