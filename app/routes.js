@@ -91,6 +91,7 @@ module.exports = function(app, passport) {
 		res.render('profile.ejs', {
 
 			user : req.user // cogemos el usuario de la session gracias a passport y se lo pasamos a la plantilla (profile.ejs)
+			
 		
 		//Cierre del método render
 		});
@@ -152,6 +153,7 @@ module.exports = function(app, passport) {
 					
 					receta: obj.nombre,
 					msg: ' ha sido guardada.'
+					
 					
 				})
 			
@@ -267,6 +269,7 @@ module.exports = function(app, passport) {
 					
 					receta: receta
 					
+					
 				})
 
   			}
@@ -313,6 +316,7 @@ module.exports = function(app, passport) {
 					msg: ' ha sido modificada con los siguientes datos:',
 					nombre: nombre,
 					ingredientes: ingredientes
+					
 					
 				})
 
