@@ -39,9 +39,9 @@ Estructura del proyecto
 
 | Nombre                             | Descripción                                             |
 | ---------------------------------- |:-----------------------------------------------------------:|
+| **app**/routes.js                  | Se definen todas las rutas de la aplicación.                |
 | **app/models**/recetas.js          | Estructura del Schema de recetas Mongoose .                 |
 | **app/models**/user.js             | Estructura del Schema de user Mongoose.                     |
-| **app**/routes.js                  | Se definen todas las rutas de la aplicación.                |
 | **config**/passport.js             | Autenticar al usuario con el Passport Local                 |
 | **config**/database.js             | Conexión con la base de datos MongoLab (nube).              |
 | **public**/                        | Ficheros estáticos ( css, js, img).                         |
