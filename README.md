@@ -60,13 +60,13 @@ Lista de dependencias
 | ------------------------------- |:-------------:|
 | bcrypt-nodejs                   | Encriptar contraseñas. |
 | express                         | Framework para Node.js. |
-| body-parser                     | Express 4.0 middleware. |
-| cookie-parser                   | Express 4.0 middleware. |
-| express-session                 | Express 4.0 middleware. |
-| morgan                          | Express 4.0 middleware. |
+| body-parser                     | Obtener datos del html mediante el método POST (form). |
+| cookie-parser                   | Para el uso de cookies. |
+| express-session                 | Necesario junto con cookie-parser. |
+| morgan                          | Muestra mensajes por consola. |
 | method-override                 | Express 4.0 middleware. |
 | ejs                             | Plantilla para Express. |
 | mongoose                        | MongoDB ODM. |
 | mailgun-js                      | Enviar emails con Node.js. |
 | passport                        | Autenticar usuario. |
-| passport-local                  | Autenticar localmente (usuario y contraseña). |
+| passport-local                  | Permite logueos locales (usuario y contraseña). |
