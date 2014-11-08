@@ -59,7 +59,7 @@ Lista de dependencias
 | Dependencia                     |  Descripción  |
 | ------------------------------- |:-------------:|
 | bcrypt-nodejs                   | Encriptar contraseñas. |
-| express                         | Framework para Node.js |
+| express                         | Framework para Node.js. |
 | body-parser                     | Express 4.0 middleware. |
 | cookie-parser                   | Express 4.0 middleware. |
 | express-session                 | Express 4.0 middleware. |
@@ -67,6 +67,6 @@ Lista de dependencias
 | method-override                 | Express 4.0 middleware. |
 | ejs                             | Plantilla para Express. |
 | mongoose                        | MongoDB ODM. |
-| mailgun-js                      | Enviar emails con Node.js |
+| mailgun-js                      | Enviar emails con Node.js. |
 | passport                        | Autenticar usuario. |
-| passport-local                  | Autenticar localmente (usuario y contraseña) |
+| passport-local                  | Autenticar localmente (usuario y contraseña). |
