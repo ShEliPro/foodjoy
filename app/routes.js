@@ -552,7 +552,9 @@ function isLoggedIn(req, res, next) {
 		return next();
 
 	//si el usuario no está logueado y trata de acceder, redireccionamos a la página principal
-	res.redirect('/');
+	res.render('error.ejs', {
+				mensaje: 'No estás logueado, no puedes acceder a esta página'
+			});
 
 //Cierre de la función isLoggedIn
 }
