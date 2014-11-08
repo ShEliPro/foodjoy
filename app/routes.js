@@ -31,7 +31,7 @@ module.exports = function(app, passport) {
 		passport.authenticate('local-signup', {
 
 			successRedirect : '/profile', //si los datos son correctos entraremos al perfil
-			failureRedirect : '/error', //si hay un error o los datos no son correctos redirecciona a la página principal
+			failureRedirect : '/error' //si hay un error o los datos no son correctos redirecciona a la página principal
 
 		})
 
@@ -49,7 +49,7 @@ module.exports = function(app, passport) {
 		passport.authenticate('local-login', {
 
 		successRedirect : '/profile', // si los datos son correctos entraremos al perfil
-		failureRedirect : '/error', //si hay un error o los datos no son correctos redirecciona a la página principal
+		failureRedirect : '/error' //si hay un error o los datos no son correctos redirecciona a la página principal
 		
 	}));
 
@@ -91,7 +91,7 @@ module.exports = function(app, passport) {
 		res.render('profile.ejs', {
 
 			user : req.user // cogemos el usuario de la session gracias a passport y se lo pasamos a la plantilla (profile.ejs)
-			
+
 		
 		//Cierre del método render
 		});
