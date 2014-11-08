@@ -4,10 +4,12 @@ var Recetas = require('../app/models/recetas');
 //Cargamos el modelo usuarios
 var User = require('../app/models/user');
 
+var api_key = process.env.API_KEY;
+
 
 //module.exports es el objeto que se devuelve tras una llamada request
 //así podemos usar express y passport pasando como parámetro
-module.exports = function(app, passport, nodemailer) {
+module.exports = function(app, passport) {
 
 // RUTAS ===============================================================
 
@@ -24,13 +26,15 @@ module.exports = function(app, passport, nodemailer) {
 	// =====================================
 	
 	//Obtiene los datos del formulario del registro autentificando el usuario
-	app.post('/signup', passport.authenticate('local-signup', {
+	app.post('/signup', 
 
-		successRedirect : '/profile', //si los datos son correctos entraremos al perfil
-		failureRedirect : '/', //si hay un error o los datos no son correctos redirecciona a la página principal
+		passport.authenticate('local-signup', {
 
+			successRedirect : '/profile', //si los datos son correctos entraremos al perfil
+			failureRedirect : '/', //si hay un error o los datos no son correctos redirecciona a la página principal
+		})
 
-	}));
+	);
 
 
 
@@ -39,11 +43,13 @@ module.exports = function(app, passport, nodemailer) {
 	// =====================================
 
 	//Obtiene los datos del formulario del registro autentificando el usuario
-	app.post('/login', passport.authenticate('local-login', {
+	app.post('/login', 
+
+		passport.authenticate('local-login', {
 
 		successRedirect : '/profile', // si los datos son correctos entraremos al perfil
 		failureRedirect : '/', //si hay un error o los datos no son correctos redirecciona a la página principal
-
+		
 	}));
 
 
@@ -54,6 +60,32 @@ module.exports = function(app, passport, nodemailer) {
 	//usamos la función isLoggedIn para verificar que el usario está logueado
 	//ya que no queremos que nadie pueda acceder al perfil sin haberse autentificado antes
 	app.get('/profile', isLoggedIn, function(req, res) {
+
+		// email info
+		
+		var domain = 'sandbox30d928b0fd864f9682ebe41b12e4056f.mailgun.org';
+		var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+		var email = 'sheilapbi@gmail.com';
+
+		console.log('email '+email);
+
+		// POST /sendmail
+		// curl --data "to=<email>, ..." http://localhost:3000/sendmail
+		var data = {
+		from: 'foodjoysocial@gmail.com',
+		to: email,
+		subject: 'Nuevo registro',
+		text: 'Un nuevo usuario se ha registrado'
+		};
+
+		mailgun.messages().send(data, function (error, body) {
+		if (error) {
+		res.json(error);
+		} else {
+		console.log(body);
+		//res.json(body);
+		}
+		});
 
 		res.render('profile.ejs', {
 
@@ -300,6 +332,8 @@ module.exports = function(app, passport, nodemailer) {
 		res.render('admin.ejs');
 	});
 
+
+	//Usuarios =============================
 	//Obtener el número de usuarios
 	app.get('/admin/usuarios', function(req, res) {
 
@@ -328,6 +362,46 @@ module.exports = function(app, passport, nodemailer) {
 	//Cierre de la función	
 	});
 
+	//Borrar un documento a la colección de usuarios
+	app.post('/borrarUsuarios', function(req, res) {
+
+		//Creamos una variable para obtener el id del formulario de usuario a eliminar 
+		var id= req.body.id;
+
+		//Para borrar un usuario mediante el id
+		User.remove({_id: id},function (err) {
+
+			//Si no hay error
+  			if (!err){
+
+  				//Muestra el mensaje por consola
+  				console.log(id + ' ha sido eliminado.');
+
+  				//Muestra el mensaje en la página borrarUsuarios.ejs
+				res.render('usuarioBorrado', {
+					
+					usuario: id,
+					msg: ' ha sido eliminada.'
+					
+				})
+  								
+
+  			}else{
+		      
+		      	//Muestra por consola el error
+		    	console.log('ERROR: ' + err);
+
+		  }
+
+
+		//Cierre del remove	
+		});
+		
+	//Cierre de la función
+	});
+
+
+	//Recetas  =============================
 	//Obtener el número de las recetas
 	app.get('/admin/recetas', function(req, res) {
 
@@ -354,43 +428,71 @@ module.exports = function(app, passport, nodemailer) {
 	//Cierre de la función
 	});
 
+	//Eliminar un documento a la colección de recetas
+	app.post('/eliminarRecetas', function(req, res) {
+
+		//Creamos una variable para obtener el id del formulario de receta a eliminar 
+		var id= req.body.id;
+
+		//Para borrar un usuario mediante el id
+		Recetas.remove({_id: id},function (err) {
+
+			//Si no hay error
+  			if (!err){
+
+  				//Muestra el mensaje por consola
+  				console.log(id + ' ha sido eliminado.');
+
+  				//Muestra el mensaje en la página borrarUsuarios.ejs
+				res.render('recetaEliminada', {
+					
+					receta: id,
+					msg: ' ha sido eliminada.'
+					
+				})
+  								
+
+  			}else{
+		      
+		      	//Muestra por consola el error
+		    	console.log('ERROR: ' + err);
+
+		  }
+
+
+		//Cierre del remove	
+		});
+		
+	//Cierre de la función
+	});
+
 	app.post('/mail', function(req, res){
 
+		// email info
+		var api_key = 'key-11cfde82cdbb7bb9b3f575fc956f79f1';
+		var domain = 'sandbox30d928b0fd864f9682ebe41b12e4056f.mailgun.org';
+		var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+		var email = req.body.email2;
 
-		// create reusable transporter object using SMTP transport
-var transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'foodjoysocial@gmail.com',
-        pass: 'foodjoysocialelisheila'
-    }
-});
+		// POST /sendmail
+		// curl --data "to=<email>, ..." http://localhost:3000/sendmail
+		var data = {
+		from: 'foodjoysocial@gmail.com',
+		to: email,
+		subject: 'Hello',
+		text: 'Testing some Mailgun awesomness!'
+		};
 
-// NB! No need to recreate the transporter object. You can use
-// the same transporter object for all e-mails
+		mailgun.messages().send(data, function (error, body) {
+		if (error) {
+		res.json(error);
+		} else {
+		console.log(body);
+		res.json(body);
+		}
+		});
+	});
 
-// setup e-mail data with unicode symbols
-var mailOptions = {
-    from: 'foodjoysocial@gmail.com', // sender address
-    to: 'foodjoysocial@gmail.com', // list of receivers
-    subject: 'Hello ✔', // Subject line
-    text: 'Hello world ✔', // plaintext body
-    html: '<b>Hello world ✔</b>' // html body
-};
-
-// send mail with defined transport object
-transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-        console.log(error);
-    }else{
-        console.log('Message sent: ' + info.response);
-    }
-});
-
-		
-
-
-	});//cierre /mail
 
 
 //Cierre del module.exports

@@ -38,7 +38,7 @@ form{
 
 input {
 
-	width: 300px;
+	width: 200px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-radius: 10px 10px; /* Para ovalar */
@@ -64,26 +64,28 @@ button{
 /***********************************************************************************************
 									   		Selectores por CLASE 
 ***********************************************************************************************/
+.container{
 
-.agregar{
+	/*border: 3px solid red;*/
+	margin: 0px;
+	width: 100%;
+	
+}
 
-	/*border: 2px solid purple;*/
-	padding: 20px;
+.seccion{
+
+	/*border: 2px solid black;*/
+	margin-top: 40px;
 
 }
 
-.modificar{
+.columna{
 
-	/*border: 2px solid purple;*/
-	padding: 20px;
-
-
-}
-
-.borrar{
-
-	/*border: 2px solid purple;*/
-	padding: 20px;
+	/*border: 2px solid red;*/
+	float: left;
+	width: 32%;
+	margin: 0px;
+	text-align: center;
 
 }
 
@@ -96,9 +98,9 @@ button{
 
 .ingredientes{
 
-
 	/*border: 1px solid red;*/
 	margin-bottom: 10px;
+
 }
 
 
@@ -115,10 +117,17 @@ button{
 
 	/*border: 2px solid green;*/
 	height: 20px;
-	background-color: #A5DF00;
+	background-color: #ACFA58;
 	text-align: right;
 	padding: 5px;
 	/*position: fixed;*/
+}
+
+
+#menu_nav a:hover{
+
+	color: #088A4B;
+
 }
 
 #titulo{
@@ -139,7 +148,7 @@ button{
 
 #bloque{
 
-	/*border: 3px solid black;*/
+	border: 3px solid black;
 	display: -webkit-box; /* Chrome*/
 	-webkit-box-orient: horizontal; /* orientación horizontal*/
 	-webkit-box-pack: center;
@@ -162,4 +171,26 @@ button{
 	-webkit-box-align: center;
 	-webkit-box-orient: vertical; /* orientación vertical*/
 	margin-top: 40px;
+}
+
+
+
+
+
+/*Cuando la anchura de la ventana contenga como máximo 800px */
+@media all and (max-width:800px){
+
+	.columna{
+
+		width:100%;
+		margin-top: 30px;
+	}
+
+	.seccion{
+
+		margin-left: 0px;
+		margin-top: 0px;
+
+	}
+
 }

@@ -14,15 +14,7 @@
 
 		<div id="container">
 
-			<nav id="menu_nav">
-
-				<a href="/admin/usuarios"> <img src="../img/user-icon.png" width="15" height="15"> Usuarios </a>
-
-				<a href="/admin/recetas"> <img src="../img/recetas-icon.png" width="16" height="16"> Recetas </a>
-
-				<a href="/logout" style="float:right;">Logout</a>
-
-			</nav> <!-- Cierre del menu nav-->
+			<% include menu_navAdmin.html %>
 
 			<div id="info">
 
@@ -32,9 +24,9 @@
 				<table border="1">
 
 					<tr>
-					 <td> id </td>
-					 <td> Nombre </td>
-					 <td> Contraseña </td>
+					 <td><strong> id </strong></td>
+					 <td><strong> Nombre </strong></td>
+					 <td><strong> Contraseña </strong></td>
 					</tr>
 
 
@@ -49,6 +41,21 @@
 				</table>
 
 			</div>
+
+			<!-- Formulario para borrar usuarios-->
+			<form action="/borrarUsuarios" method="post">
+
+				<h3> Eliminar usuarios </h3>
+
+				<div class="id">
+						<label> Introduzca el <strong>id</strong>: </label> <br />
+						<input type="text" name="id">
+				</div> <!-- Cierre del id-->
+
+
+				<button type="submit"> Eliminar </button>
+
+			</form> <!-- Cierre del formulario borrarUsuario -->
 
 		</div> <!-- Cierre del div container -->
 

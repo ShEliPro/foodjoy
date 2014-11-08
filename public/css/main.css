@@ -13,9 +13,9 @@
 											Selectores por TIPO
 ************************************************************************************************ */
 
-div #titulo > h1 {
+div .columna > h1 {
 
-	font-size: 65px;
+	font-size: 50px;
 	color: white;
 }
 
@@ -28,6 +28,7 @@ div {
 h1{
 	color: white;
 	text-align: center;
+	margin-top: 20px;
 	margin-bottom: 20px;
 	font-size: 40px;
 	text-shadow: black 0.1em 0.1em 0.2em;
@@ -87,6 +88,30 @@ section{
 /***********************************************************************************************
 									   		Selectores por CLASE 
 ***********************************************************************************************/
+.container{
+
+	/*border: 3px solid red;*/
+	margin: 0px;
+	width: 100%;
+	
+}
+
+.bloque{
+
+	/*border: 2px solid yellow;*/
+	margin-left: 50px;
+	margin-top: 230px;
+
+}
+
+.columna{
+
+	/*border: 1px solid blue;*/
+	float: left;
+	width: 30%;
+	margin: 0px;
+	text-align: center;
+}
 
 .usuario{
 
@@ -115,44 +140,31 @@ section{
 											Selectores por ID
 ************************************************************************************************ */
 
-#container{
 
-	/*border: 3px solid red;*/
-	
-}
 
-#bloque{
 
-	/*border: 2px solid black;*/
-	display: -webkit-box; /* Chrome*/
-	-webkit-box-orient: horizontal; /* orientación horizontal*/
-	padding: 135px;
-	margin-top: 90px;
 
-}
 
-#registro{
 
-	/*border: 1px solid blue;*/
-	-webkit-box-flex: 1;
-	-webkit-box-flex-direction: row;
-	margin-top: 40px;
+/*Cuando la anchura de la ventana contenga como máximo 800px */
+@media all and (max-width:800px){
 
-}
+	.columna{
 
-#titulo{
+		width:100%;
+	}
 
-	/*border: 1px solid yellow;*/
-	-webkit-box-flex: 1;
-	-webkit-box-flex-direction: row;
+	.bloque{
 
-}
+		margin-left: 0px;
+		margin-top: 0px;
 
-#login{
+	}
 
-	/*border: 1px solid green;*/
-	-webkit-box-flex: 1;
-	-webkit-box-flex-direction: row;
-	margin-top: 40px;
 
+	h1{
+
+		margin-top: 20px;
+
+	}
 }

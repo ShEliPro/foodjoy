@@ -12,11 +12,8 @@ var bodyParser = require('body-parser'); //para poder coger datos del html media
 
 
 var app      = express(); //Se instancia una nueva variable llamado app para utilizar los método que contiene la dependencia express
-var port     = process.env.PORT || 3000; //Se configura el puerto
-
+//var port     = process.env.PORT || 3000; //Se configura el puerto
 var configDB = require('./config/database.js'); //Se está configuran la base de datos. Estamos importando el archivo database.js que está en el directorio config
-
-var nodemailer = require('nodemailer'); //para enviar correos
 
 
 //CONFIGURACIÓN ===============================================================
@@ -61,5 +58,10 @@ require('./app/routes.js')(app, passport);
 
 
 // ARRANQUE DEL SERVIDOR ======================================================================
-app.listen(port);
+/*app.listen(port);
+console.log('The magic happens on port ' + port);*/
+
+//Servidor Cloud9/OpenShift/local
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 3000, ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+app.listen(port, ip);
 console.log('The magic happens on port ' + port);

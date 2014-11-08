@@ -19,7 +19,7 @@
 	</head>
 
 	<body>
-		<div id="container">
+		<div class="container">
 
 			<% include menu_nav.html %>
 
@@ -29,10 +29,10 @@
 				
 			</div> <!-- Cierre del user -->
 
-			<section id="bloque">
+			<section class="seccion">
 			
 				<!-- Formulario para añadir las recetas-->
-				<div class="agregar">
+				<div class="columna">
 
 					<form action="/agregarRecetas" method="post">
 
@@ -56,7 +56,7 @@
 
 				
 				<!-- Formulario para modificar las recetas-->
-				<div class="modificar">
+				<div class="columna">
 
 					<form action="/modificarRecetas" method="post">
 
@@ -76,7 +76,7 @@
 
 
 				<!-- Formulario para borrar las recetas-->
-				<div class="borrar">
+				<div class="columna">
 
 					<form action="/borrarRecetas" method="post">
 

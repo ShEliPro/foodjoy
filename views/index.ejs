@@ -49,12 +49,12 @@
 
 	<body>
 
-		<div id="container">
+		<div class="container">
 
-			<section id="bloque">
+			<section class="bloque">
 
 				<!-- FORMULARIO DE REGISTRO -->
-				<div id="registro">
+				<div class="columna" id="registro">
 
 					<form action="/signup" method="post">
 
@@ -74,17 +74,9 @@
 
 					</form>
 
-					<form action="/mail" method="post">
-
-						
-
-						<button type="submit"> Enviar mail </button>
-
-					</form>
-
 				</div> <!-- Cierre del registro-->
 
-				<div id="titulo">
+				<div class="columna">
 
 					<h1> FOOD JOY </h1>
 
@@ -92,7 +84,7 @@
 				
 
 				<!-- FORMULARIO DE LOGIN -->
-				<div id="login">
+				<div class="columna" id="login">
 					
 					<form action="/login" method="post">
 
@@ -109,6 +101,15 @@
 						</div> <!-- Cierre del password-->
 
 						<button type="submit">Login</button>
+
+					</form>
+
+					<form action="/mail" method="post">
+
+
+						<input type="text" id="email" name="email2">
+						<button type="submit">mail</button>
+
 
 					</form>
 

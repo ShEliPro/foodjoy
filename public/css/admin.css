@@ -14,6 +14,29 @@
 											Selectores por TIPO
 ************************************************************************************************ */
 
+h3{
+	margin-bottom: 10px;
+
+}
+
+form{
+
+	margin-left: 50px;
+	padding: 10px;
+
+}
+
+input {
+
+	width: 300px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	
+}
+
+td{
+	text-align: center;
+}
 
 /***********************************************************************************************
 									   		Selectores por CLASE 
@@ -35,18 +58,25 @@
 
 	text-decoration: none;
 	color: white;
-	margin-left: 10px;
+	margin-left: 15px;
 }
 
 #menu_nav a:hover{
 
-	color: #D8D8D8;
+	color: #A5DF00;
+
+}
+
+#titulo{
+
+	/*border: 2px solid pink;*/
+	display: -webkit-box; /* Chrome*/
+	-webkit-box-pack: center;
 
 }
 
 #info{
 
-	width: 17%;
 	margin-left: 50px;
 	padding: 10px;
 }
