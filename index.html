@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Foodjoy by ShEliPro</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Foodjoy</h1>
+        <p class="header">Red Social Gastronómica</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/ShEliPro/foodjoy/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/ShEliPro/foodjoy/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/ShEliPro/foodjoy">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/ShEliPro">ShEliPro</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a id="foodjoy" class="anchor" href="#foodjoy" aria-hidden="true"><span class="octicon octicon-link"></span></a>foodjoy</h1>
+
+<p>Se trata de una Red Social Gastronómica que pone en contacto a usuarios para que compartan Recetas, Productos y Restaurantes.</p>
+
+<p>La manera de compartir será subiendo una imagen, añadiendo un texto y un icono dependiendo de lo que sea el contenido.</p>
+
+<p>Cada usuario tendrá su perfil con sus recetas, resturantes y producto.</p>
+
+<ul>
+<li>Gestión de Usuarios</li>
+<li>Gestión de Recetas</li>
+<li>Gestión de Restaurantes</li>
+<li>Gestión de Productos</li>
+</ul>
+
+<p>Tecnologías a usar:</p>
+
+<ul>
+<li>HTML5 / CSS3 + JavaScript</li>
+<li>Node.js</li>
+<li>MongoDB</li>
+</ul>
+
+<p>Para acceder a la base de datos desde el terminal hay que escribir el siguiente código:</p>
+
+<pre><code>USER=xxxxxxx PASSWORD=xxxxxxxxx API_KEY=xxxxxxxxxxxxx nodemon server.js
+</code></pre>
+
+<p>Enlace Heroku: (actualizado todos los dias) <a href="https://foodjoy-sheli.herokuapp.com/">https://foodjoy-sheli.herokuapp.com/</a></p>
+
+<p>Enlace OpenShift: (actualizado cada semana) <a href="http://pruebaapp-sheli.rhcloud.com/">http://pruebaapp-sheli.rhcloud.com/</a></p>
+
+<p>Actualizado cada cambio realizado en GitHub.</p>
+
+<p>Una copia de seguridad en Dropbox.</p>
+
+<p>email oficial: 
+    <a href="mailto:foodjoysocial@gmail.com">foodjoysocial@gmail.com</a></p>
+
+<h2>
+<a id="estructura-del-proyecto" class="anchor" href="#estructura-del-proyecto" aria-hidden="true"><span class="octicon octicon-link"></span></a>Estructura del proyecto</h2>
+
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th align="center">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>app</strong>/routes.js</td>
+<td align="center">Se definen todas las rutas de la aplicación</td>
+</tr>
+<tr>
+<td>
+<strong>app/models</strong>/recetas.js</td>
+<td align="center">Estructura del Schema de recetas Mongoose</td>
+</tr>
+<tr>
+<td>
+<strong>app/models</strong>/user.js</td>
+<td align="center">Estructura del Schema de user Mongoose</td>
+</tr>
+<tr>
+<td>
+<strong>config</strong>/passport.js</td>
+<td align="center">Autenticar al usuario con el Passport Local</td>
+</tr>
+<tr>
+<td>
+<strong>config</strong>/database.js</td>
+<td align="center">Conexión con la base de datos MongoLab (nube)</td>
+</tr>
+<tr>
+<td>
+<strong>public</strong>/</td>
+<td align="center">Ficheros estáticos (css, js, img)</td>
+</tr>
+<tr>
+<td>
+<strong>public</strong>/<strong>js</strong>/formulario.js</td>
+<td align="center">Funciones de JavaScript (cliente)</td>
+</tr>
+<tr>
+<td>
+<strong>public</strong>/<strong>js</strong>/jquery.js</td>
+<td align="center">Fichero externo de jQuery (cliente)</td>
+</tr>
+<tr>
+<td>
+<strong>public</strong>/<strong>css</strong>/main.css</td>
+<td align="center">Main stylesheet para la página principal</td>
+</tr>
+<tr>
+<td>
+<strong>public</strong>/<strong>css</strong>/profile.css</td>
+<td align="center">Profile stylesheet para cada perfil de usuario.</td>
+</tr>
+<tr>
+<td>
+<strong>views</strong>/index.ejs</td>
+<td align="center">Página principal con la plantilla ejs</td>
+</tr>
+<tr>
+<td>server.js</td>
+<td align="center">Aplicación y servidor</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="lista-de-dependencias" class="anchor" href="#lista-de-dependencias" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lista de dependencias</h2>
+
+<table>
+<thead>
+<tr>
+<th>Dependencia</th>
+<th align="center">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bcrypt-nodejs</td>
+<td align="center">Encriptar contraseñas</td>
+</tr>
+<tr>
+<td>express</td>
+<td align="center">Framework para Node.js</td>
+</tr>
+<tr>
+<td>body-parser</td>
+<td align="center">Obtener datos del html mediante el método POST (form)</td>
+</tr>
+<tr>
+<td>cookie-parser</td>
+<td align="center">Para el uso de cookies</td>
+</tr>
+<tr>
+<td>express-session</td>
+<td align="center">Necesario junto con cookie-parser</td>
+</tr>
+<tr>
+<td>morgan</td>
+<td align="center">Muestra mensajes por consola de las peticiones</td>
+</tr>
+<tr>
+<td>method-override</td>
+<td align="center">Express 4.0 middleware</td>
+</tr>
+<tr>
+<td>ejs</td>
+<td align="center">Motor de plantillas para Express</td>
+</tr>
+<tr>
+<td>mongoose</td>
+<td align="center">MongoDB ODM</td>
+</tr>
+<tr>
+<td>mailgun-js</td>
+<td align="center">Enviar emails con Node.js</td>
+</tr>
+<tr>
+<td>passport</td>
+<td align="center">Autenticar usuario</td>
+</tr>
+<tr>
+<td>passport-local</td>
+<td align="center">Permite logueos locales (usuario y contraseña)</td>
+</tr>
+</tbody>
+</table>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
