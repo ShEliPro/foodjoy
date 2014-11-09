@@ -63,7 +63,7 @@ Lista de dependencias
 | body-parser                     | Obtener datos del html mediante el método POST (form) |
 | cookie-parser                   | Para el uso de cookies |
 | express-session                 | Necesario junto con cookie-parser|
-| morgan                          | Muestra mensajes por consola |
+| morgan                          | Muestra mensajes por consola de las peticiones|
 | method-override                 | Express 4.0 middleware |
 | ejs                             | Motor de plantillas para Express |
 | mongoose                        | MongoDB ODM |
