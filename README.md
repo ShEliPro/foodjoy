@@ -33,11 +33,11 @@ Una copia de seguridad en Dropbox.
 
 email oficial: 
 
-	foodjoysocial@gmail.com
+foodjoysocial@gmail.com
 	
 web oficial de descripción del proyecto:
 
-	 http://shelipro.github.io/foodjoy
+http://shelipro.github.io/foodjoy
 	 
 
 Estructura del proyecto
