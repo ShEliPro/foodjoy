@@ -39,18 +39,18 @@ Estructura del proyecto
 
 | Nombre                             | Descripción                                                 |
 | ---------------------------------- |:-----------------------------------------------------------:|
-| **app**/routes.js                  | Se definen todas las rutas de la aplicación.                |
-| **app/models**/recetas.js          | Estructura del Schema de recetas Mongoose .                 |
-| **app/models**/user.js             | Estructura del Schema de user Mongoose.                     |
+| **app**/routes.js                  | Se definen todas las rutas de la aplicación                 |
+| **app/models**/recetas.js          | Estructura del Schema de recetas Mongoose                   |
+| **app/models**/user.js             | Estructura del Schema de user Mongoose                      |
 | **config**/passport.js             | Autenticar al usuario con el Passport Local                 |
-| **config**/database.js             | Conexión con la base de datos MongoLab (nube).              |
-| **public**/                        | Ficheros estáticos ( css, js, img).                         |
-| **public**/**js**/formulario.js    | Funciones de JavaScript para el lado cliente.               |
-| **public**/**js**/jquery.js        | Fichero externo para jQuery para el lado cliente.           |
-| **public**/**css**/main.css        | Main stylesheet para la página principal .                  |
+| **config**/database.js             | Conexión con la base de datos MongoLab (nube)               |
+| **public**/                        | Ficheros estáticos (css, js, img)                           |
+| **public**/**js**/formulario.js    | Funciones de JavaScript (cliente)                           |
+| **public**/**js**/jquery.js        | Fichero externo de jQuery (cliente)                         |
+| **public**/**css**/main.css        | Main stylesheet para la página principal                    |
 | **public**/**css**/profile.css     | Profile stylesheet para cada perfil de usuario.             |
-| **views**/index.ejs                | Página principal con la plantilla ejs.                      |
-| server.js                          | Aplicación.                                                 |
+| **views**/index.ejs                | Página principal con la plantilla ejs                       |
+| server.js                          | Aplicación y servidor                                       |
 
 
 Lista de dependencias
@@ -58,15 +58,15 @@ Lista de dependencias
 
 | Dependencia                     |  Descripción  |
 | ------------------------------- |:-------------:|
-| bcrypt-nodejs                   | Encriptar contraseñas. |
-| express                         | Framework para Node.js. |
-| body-parser                     | Obtener datos del html mediante el método POST (form). |
-| cookie-parser                   | Para el uso de cookies. |
-| express-session                 | Necesario junto con cookie-parser. |
-| morgan                          | Muestra mensajes por consola. |
-| method-override                 | Express 4.0 middleware. |
-| ejs                             | Plantilla para Express. |
-| mongoose                        | MongoDB ODM. |
-| mailgun-js                      | Enviar emails con Node.js. |
-| passport                        | Autenticar usuario. |
-| passport-local                  | Permite logueos locales (usuario y contraseña). |
+| bcrypt-nodejs                   | Encriptar contraseñas |
+| express                         | Framework para Node.js |
+| body-parser                     | Obtener datos del html mediante el método POST (form) |
+| cookie-parser                   | Para el uso de cookies |
+| express-session                 | Necesario junto con cookie-parser|
+| morgan                          | Muestra mensajes por consola |
+| method-override                 | Express 4.0 middleware |
+| ejs                             | Motor de plantillas para Express |
+| mongoose                        | MongoDB ODM |
+| mailgun-js                      | Enviar emails con Node.js |
+| passport                        | Autenticar usuario|
+| passport-local                  | Permite logueos locales (usuario y contraseña) |
