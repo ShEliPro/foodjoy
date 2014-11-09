@@ -186,7 +186,7 @@ module.exports = function(app, passport) {
 
 
 	//Obtener toda la colección de recetas
-	app.get('/listaRecetas',  isLoggedIn, function(req, res) {
+	app.get('/listaRecetas', isLoggedIn, function(req, res) {
 		
 		Recetas.find({},function(err,recetas){
 			
@@ -195,7 +195,9 @@ module.exports = function(app, passport) {
 				
 				//Muestra por consola
 				console.log(err);
-				res.render('error');
+				res.render('error.ejs', {
+				mensaje: err
+			});
 			}
 			else{
 
@@ -228,6 +230,12 @@ module.exports = function(app, passport) {
 		//Creamos una variable para obtener el nombre del formulario de la receta a eliminar 
 		var nombre = req.body.nombre;
 
+		if(nombre==null || nombre==""){
+			res.render('error.ejs', {
+				mensaje: 'El nombre de la receta es vacio'
+			});
+		}
+
 		//Para borrar una receta mediante el nombre
 		Recetas.remove({nombre: nombre},function (err) {
 
@@ -250,7 +258,9 @@ module.exports = function(app, passport) {
 		      
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
-		    	res.render('error');
+		    	res.render('error.ejs', {
+				mensaje: ''
+			});
 
 		  }
 
@@ -280,7 +290,7 @@ module.exports = function(app, passport) {
 		}
 
 		//Para borrar una receta mediante el nombre
-		Recetas.findOne({nombre: nombre},function (err,receta) {
+		Recetas.findOne({nombre: nombre}, function (err, receta) {
 
 			//Si no hay error
   			if (!err){
@@ -288,7 +298,14 @@ module.exports = function(app, passport) {
   				//Mostramos un mensaje por consola
   				console.log(nombre + ' va a ser modificada.');
 
-				//Muestra el objeto receta en la página modificarRecetas.ejs
+  				if(receta==null){
+  					console.log("No existe la receta "+receta);
+  					res.render('error.ejs', {
+				mensaje: 'Esa receta no existe'
+			});
+  				}else{
+
+  					//Muestra el objeto receta en la página modificarRecetas.ejs
 				res.render('modificarRecetas', {
 					
 					receta: receta
@@ -296,12 +313,18 @@ module.exports = function(app, passport) {
 					
 				})
 
+  				}
+
+				
+
   			}
   			else{
 		      
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
-		    	res.render('error');
+		    	res.render('error.ejs', {
+				mensaje: err
+			});
 			}
 
 
@@ -326,7 +349,9 @@ module.exports = function(app, passport) {
 				
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
-		    	res.render('error');
+		    	res.render('error.ejs', {
+				mensaje: err
+			});
 		    }
 		    else{
 
@@ -423,7 +448,9 @@ module.exports = function(app, passport) {
 		      
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
-		    	res.render('error');
+		    	res.render('error.ejs', {
+				mensaje: ''
+			});
 
 		  }
 
@@ -490,7 +517,9 @@ module.exports = function(app, passport) {
 		      
 		      	//Muestra por consola el error
 		    	console.log('ERROR: ' + err);
-		    	res.render('error');
+		    	res.render('error.ejs', {
+				mensaje: ''
+			});
 
 		  }
 
