@@ -25,7 +25,7 @@ Para acceder a la base de datos desde el terminal hay que escribir el siguiente 
 
 Enlace Heroku: (actualizado todos los dias) https://foodjoy-sheli.herokuapp.com/
 
-Enlace OpenShift: (actualizado cada semana) http://pruebaapp-sheli.rhcloud.com/
+Enlace OpenShift: (actualizado cada semana) http://foodjoy-sheli.rhcloud.com/
 
 Actualizado cada cambio realizado en GitHub.
 
